@@ -21,13 +21,29 @@ class VIPERWireframe: VIPERItem, VIPERWireframeInterface {
     
     // MARK: - VIPERWireframeInterface
     
-    func module<VIPERViewControllerType:VIPERViewController, VIPERPresenterType:VIPERPresenter, VIPEREventHandlerType:VIPEREventHandler, VIPERInteractorType:VIPERInteractor, VIPERDataManagerType:VIPERDataManager>(storyboard:UIStoryboard, viewControllerID:String, presenterType:VIPERPresenterType.Type, eventHandlerType:VIPEREventHandlerType.Type, interactorType:VIPERInteractorType.Type, dataManagerType:VIPERDataManagerType.Type) -> VIPERViewControllerType {
+    func module<
+        VIPERViewControllerType:VIPERViewController,
+        VIPERPresenterType:VIPERPresenter,
+        VIPEREventHandlerType:VIPEREventHandler,
+        VIPERInteractorType:VIPERInteractor,
+        VIPERDataManagerType:VIPERDataManager>
+        (storyboard:UIStoryboard,
+         viewControllerID:String,
+         presenterType:VIPERPresenterType.Type,
+         eventHandlerType:VIPEREventHandlerType.Type,
+         interactorType:VIPERInteractorType.Type,
+         dataManagerType:VIPERDataManagerType.Type,
+         presenterInitBlock:((VIPERPresenterType.Type) -> (VIPERPresenterType))?,
+         eventHandlerInitBlock:((VIPEREventHandlerType.Type) -> (VIPEREventHandlerType))?,
+         interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
+         dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
+        ) -> VIPERViewControllerType {
         
         let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as! VIPERViewControllerType
-        let presenter      = presenterType.init()
-        let eventHandler   = eventHandlerType.init()
-        let interactor     = interactorType.init()
-        let dataManager    = dataManagerType.init()
+        let presenter      = presenterInitBlock?(presenterType) ?? presenterType.init()
+        let eventHandler   = eventHandlerInitBlock?(eventHandlerType) ?? eventHandlerType.init()
+        let interactor     = interactorInitBlock?(interactorType) ?? interactorType.init()
+        let dataManager    = dataManagerInitBlock?(dataManagerType) ?? dataManagerType.init()
         
         viewController._presenter    = presenter
         viewController._eventHandler = eventHandler

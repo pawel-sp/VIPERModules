@@ -12,7 +12,23 @@ import UIKit
 
 protocol VIPERWireframeInterface: NSObjectProtocol {
   
-    func module<VIPERViewControllerType:VIPERViewController, VIPERPresenterType:VIPERPresenter, VIPEREventHandlerType:VIPEREventHandler, VIPERInteractorType:VIPERInteractor, VIPERDataManagerType:VIPERDataManager>(storyboard:UIStoryboard, viewControllerID:String, presenterType:VIPERPresenterType.Type, eventHandlerType:VIPEREventHandlerType.Type, interactorType:VIPERInteractorType.Type, dataManagerType:VIPERDataManagerType.Type) -> VIPERViewControllerType
+    func module<
+        VIPERViewControllerType:VIPERViewController,
+        VIPERPresenterType:VIPERPresenter,
+        VIPEREventHandlerType:VIPEREventHandler,
+        VIPERInteractorType:VIPERInteractor,
+        VIPERDataManagerType:VIPERDataManager>
+        (storyboard:UIStoryboard,
+         viewControllerID:String,
+         presenterType:VIPERPresenterType.Type,
+         eventHandlerType:VIPEREventHandlerType.Type,
+         interactorType:VIPERInteractorType.Type,
+         dataManagerType:VIPERDataManagerType.Type,
+         presenterInitBlock:((VIPERPresenterType.Type) -> (VIPERPresenterType))?,
+         eventHandlerInitBlock:((VIPEREventHandlerType.Type) -> (VIPEREventHandlerType))?,
+         interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
+         dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
+        ) -> VIPERViewControllerType
     
 }
 
@@ -90,6 +106,12 @@ protocol VIPERCustomWireframeInterface: VIPERWireframeInterface {
     var viewControllerID:String { get }
     
     func customModule() -> CustomViewInterfaceType
+    func customModule(
+        presenterInitBlock: ((CustomPresenterInterfaceType.Type) -> (CustomPresenterInterfaceType))?,
+        eventHandlerInitBlock: ((CustomEventHandlerInterfaceType.Type) -> (CustomEventHandlerInterfaceType))?,
+        interactorInitBlock: ((CustomInteractorInterfaceType.Type) -> (CustomInteractorInterfaceType))?,
+        dataManagerInitBlock: ((CustomDataManagerType.Type) -> (CustomDataManagerType))?)
+        -> CustomViewInterfaceType
     
 }
 
@@ -150,14 +172,33 @@ protocol VIPERCustomInteractorDelegate: VIPERInteractorDelegate {
 
 extension VIPERCustomWireframeInterface {
     
-    func customModule() -> CustomViewInterfaceType {
+    func customModule(
+        presenterInitBlock: ((CustomPresenterInterfaceType.Type) -> (CustomPresenterInterfaceType))?,
+        eventHandlerInitBlock: ((CustomEventHandlerInterfaceType.Type) -> (CustomEventHandlerInterfaceType))?,
+        interactorInitBlock: ((CustomInteractorInterfaceType.Type) -> (CustomInteractorInterfaceType))?,
+        dataManagerInitBlock: ((CustomDataManagerType.Type) -> (CustomDataManagerType))?) -> CustomViewInterfaceType {
+        
         return module(
             storyboard: storyboard,
             viewControllerID: viewControllerID,
             presenterType: CustomPresenterInterfaceType.self,
             eventHandlerType: CustomEventHandlerInterfaceType.self,
             interactorType: CustomInteractorInterfaceType.self,
-            dataManagerType: CustomDataManagerType.self
+            dataManagerType: CustomDataManagerType.self,
+            presenterInitBlock: presenterInitBlock,
+            eventHandlerInitBlock: eventHandlerInitBlock,
+            interactorInitBlock: interactorInitBlock,
+            dataManagerInitBlock: dataManagerInitBlock
+        )
+        
+    }
+    
+    func customModule() -> CustomViewInterfaceType {
+        return customModule(
+            presenterInitBlock: nil,
+            eventHandlerInitBlock: nil,
+            interactorInitBlock: nil,
+            dataManagerInitBlock: nil
         )
     }
     

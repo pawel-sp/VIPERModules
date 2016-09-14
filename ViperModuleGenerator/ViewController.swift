@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBAction func didSelectExampleButton(_ sender: AnyObject) {
-        navigationController?.pushViewController(ExampleWireframe().customModule(), animated: true)
+        navigationController?.pushViewController(ExampleWireframe().customModule(dataLimit: 5), animated: true)
     }
 }
 

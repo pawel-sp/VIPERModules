@@ -20,10 +20,25 @@ class DataItemResource {
 
 class ExampleDataManager: VIPERDataManager {
 
+    private var dataLimit:Int
+    
+    // MARK: - Init
+    
+    required init(dataLimit:Int) {
+        self.dataLimit = dataLimit
+        super.init()
+    }
+    
+    required init() {
+        fatalError("init() has not been implemented")
+    }
+    
+    // MARK: - Utilities
+    
     func dataRequestWithCompletionBlock(block:@escaping (([DataItemResource]) -> Void)) {
         let deadlineTime = DispatchTime.now() + .seconds(2)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            let dataCount = 10
+            let dataCount = self.dataLimit
             let dataItems = (0..<dataCount).map({ DataItemResource(name: "item \($0)") })
             block(dataItems)
         }

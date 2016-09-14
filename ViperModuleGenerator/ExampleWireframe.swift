@@ -10,7 +10,20 @@ import UIKit
 
 class ExampleWireframe: VIPERWireframe, ExampleWireframeInterface {
 
+    // MARK: - ExampleWireframeInterface
+    
     var storyboard:UIStoryboard { return UIStoryboard.init(name: "Main", bundle: nil) }
     var viewControllerID:String { return "ExampleViewController" }
+    
+    // MARK: - Utilities
+    
+    func customModule(dataLimit:Int) ->  ExampleViewController {
+        return customModule(
+            presenterInitBlock: nil,
+            eventHandlerInitBlock: nil,
+            interactorInitBlock: nil,
+            dataManagerInitBlock: { return $0.init(dataLimit:dataLimit) }
+        )
+    }
     
 }
