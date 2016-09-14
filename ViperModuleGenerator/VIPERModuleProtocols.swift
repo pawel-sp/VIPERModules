@@ -30,6 +30,42 @@ protocol VIPERWireframeInterface: NSObjectProtocol {
          dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
         ) -> VIPERViewControllerType
     
+    func module<
+        VIPERTableViewControllerType:VIPERTableViewController,
+        VIPERPresenterType:VIPERPresenter,
+        VIPEREventHandlerType:VIPEREventHandler,
+        VIPERInteractorType:VIPERInteractor,
+        VIPERDataManagerType:VIPERDataManager>
+        (storyboard:UIStoryboard,
+         viewControllerID:String,
+         presenterType:VIPERPresenterType.Type,
+         eventHandlerType:VIPEREventHandlerType.Type,
+         interactorType:VIPERInteractorType.Type,
+         dataManagerType:VIPERDataManagerType.Type,
+         presenterInitBlock:((VIPERPresenterType.Type) -> (VIPERPresenterType))?,
+         eventHandlerInitBlock:((VIPEREventHandlerType.Type) -> (VIPEREventHandlerType))?,
+         interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
+         dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
+        ) -> VIPERTableViewControllerType
+    
+    func module<
+        VIPERCollectionViewControllerType:VIPERCollectionViewController,
+        VIPERPresenterType:VIPERPresenter,
+        VIPEREventHandlerType:VIPEREventHandler,
+        VIPERInteractorType:VIPERInteractor,
+        VIPERDataManagerType:VIPERDataManager>
+        (storyboard:UIStoryboard,
+         viewControllerID:String,
+         presenterType:VIPERPresenterType.Type,
+         eventHandlerType:VIPEREventHandlerType.Type,
+         interactorType:VIPERInteractorType.Type,
+         dataManagerType:VIPERDataManagerType.Type,
+         presenterInitBlock:((VIPERPresenterType.Type) -> (VIPERPresenterType))?,
+         eventHandlerInitBlock:((VIPEREventHandlerType.Type) -> (VIPEREventHandlerType))?,
+         interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
+         dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
+        ) -> VIPERCollectionViewControllerType
+    
 }
 
 protocol VIPERViewInterface: NSObjectProtocol {
