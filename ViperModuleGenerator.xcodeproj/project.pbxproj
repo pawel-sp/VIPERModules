@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A41A80C91D8943B8005364DA /* VIPERModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41A80C71D8943B8005364DA /* VIPERModuleProtocols.swift */; };
+		A41A80CA1D8943B8005364DA /* VIPERModuleClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41A80C81D8943B8005364DA /* VIPERModuleClasses.swift */; };
+		A41A80D31D8943C5005364DA /* ExampleModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41A80CB1D8943C5005364DA /* ExampleModuleProtocols.swift */; };
+		A41A80D41D8943C5005364DA /* ExampleModuleSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41A80CC1D8943C5005364DA /* ExampleModuleSetup.swift */; };
+		A41A80D51D8943C5005364DA /* ExampleDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41A80CD1D8943C5005364DA /* ExampleDataManager.swift */; };
+		A41A80D61D8943C5005364DA /* ExampleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41A80CE1D8943C5005364DA /* ExampleInteractor.swift */; };
+		A41A80D71D8943C5005364DA /* ExampleEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41A80CF1D8943C5005364DA /* ExampleEventHandler.swift */; };
+		A41A80D81D8943C5005364DA /* ExamplePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41A80D01D8943C5005364DA /* ExamplePresenter.swift */; };
+		A41A80D91D8943C5005364DA /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41A80D11D8943C5005364DA /* ExampleViewController.swift */; };
+		A41A80DA1D8943C5005364DA /* ExampleWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41A80D21D8943C5005364DA /* ExampleWireframe.swift */; };
 		A423CB5A1D8942280057B748 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423CB591D8942280057B748 /* AppDelegate.swift */; };
 		A423CB5C1D8942280057B748 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423CB5B1D8942280057B748 /* ViewController.swift */; };
 		A423CB5F1D8942280057B748 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A423CB5D1D8942280057B748 /* Main.storyboard */; };
@@ -15,6 +25,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A41A80C71D8943B8005364DA /* VIPERModuleProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERModuleProtocols.swift; sourceTree = "<group>"; };
+		A41A80C81D8943B8005364DA /* VIPERModuleClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERModuleClasses.swift; sourceTree = "<group>"; };
+		A41A80CB1D8943C5005364DA /* ExampleModuleProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModuleProtocols.swift; sourceTree = "<group>"; };
+		A41A80CC1D8943C5005364DA /* ExampleModuleSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModuleSetup.swift; sourceTree = "<group>"; };
+		A41A80CD1D8943C5005364DA /* ExampleDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDataManager.swift; sourceTree = "<group>"; };
+		A41A80CE1D8943C5005364DA /* ExampleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleInteractor.swift; sourceTree = "<group>"; };
+		A41A80CF1D8943C5005364DA /* ExampleEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleEventHandler.swift; sourceTree = "<group>"; };
+		A41A80D01D8943C5005364DA /* ExamplePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplePresenter.swift; sourceTree = "<group>"; };
+		A41A80D11D8943C5005364DA /* ExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		A41A80D21D8943C5005364DA /* ExampleWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleWireframe.swift; sourceTree = "<group>"; };
 		A423CB561D8942280057B748 /* ViperModuleGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViperModuleGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A423CB591D8942280057B748 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A423CB5B1D8942280057B748 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +55,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A41A80C61D894391005364DA /* Example Module */ = {
+			isa = PBXGroup;
+			children = (
+				A41A80CB1D8943C5005364DA /* ExampleModuleProtocols.swift */,
+				A41A80CC1D8943C5005364DA /* ExampleModuleSetup.swift */,
+				A41A80CD1D8943C5005364DA /* ExampleDataManager.swift */,
+				A41A80CE1D8943C5005364DA /* ExampleInteractor.swift */,
+				A41A80CF1D8943C5005364DA /* ExampleEventHandler.swift */,
+				A41A80D01D8943C5005364DA /* ExamplePresenter.swift */,
+				A41A80D11D8943C5005364DA /* ExampleViewController.swift */,
+				A41A80D21D8943C5005364DA /* ExampleWireframe.swift */,
+			);
+			name = "Example Module";
+			sourceTree = "<group>";
+		};
 		A423CB4D1D8942280057B748 = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +89,33 @@
 		A423CB581D8942280057B748 /* ViperModuleGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				A423CB651D8942280057B748 /* Info.plist */,
 				A423CB591D8942280057B748 /* AppDelegate.swift */,
 				A423CB5B1D8942280057B748 /* ViewController.swift */,
-				A423CB5D1D8942280057B748 /* Main.storyboard */,
 				A423CB601D8942280057B748 /* Assets.xcassets */,
+				A423CB5D1D8942280057B748 /* Main.storyboard */,
 				A423CB621D8942280057B748 /* LaunchScreen.storyboard */,
-				A423CB651D8942280057B748 /* Info.plist */,
+				A423CB6B1D8942AC0057B748 /* Modules */,
 			);
 			path = ViperModuleGenerator;
+			sourceTree = "<group>";
+		};
+		A423CB6B1D8942AC0057B748 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A423CB6C1D8943020057B748 /* Base */,
+				A41A80C61D894391005364DA /* Example Module */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		A423CB6C1D8943020057B748 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A41A80C71D8943B8005364DA /* VIPERModuleProtocols.swift */,
+				A41A80C81D8943B8005364DA /* VIPERModuleClasses.swift */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +190,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A41A80D91D8943C5005364DA /* ExampleViewController.swift in Sources */,
+				A41A80D31D8943C5005364DA /* ExampleModuleProtocols.swift in Sources */,
+				A41A80D71D8943C5005364DA /* ExampleEventHandler.swift in Sources */,
+				A41A80D61D8943C5005364DA /* ExampleInteractor.swift in Sources */,
 				A423CB5C1D8942280057B748 /* ViewController.swift in Sources */,
+				A41A80D51D8943C5005364DA /* ExampleDataManager.swift in Sources */,
+				A41A80D81D8943C5005364DA /* ExamplePresenter.swift in Sources */,
+				A41A80CA1D8943B8005364DA /* VIPERModuleClasses.swift in Sources */,
+				A41A80C91D8943B8005364DA /* VIPERModuleProtocols.swift in Sources */,
+				A41A80D41D8943C5005364DA /* ExampleModuleSetup.swift in Sources */,
 				A423CB5A1D8942280057B748 /* AppDelegate.swift in Sources */,
+				A41A80DA1D8943C5005364DA /* ExampleWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +361,7 @@
 				A423CB6A1D8942280057B748 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
