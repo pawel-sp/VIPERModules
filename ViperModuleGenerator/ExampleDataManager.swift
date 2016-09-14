@@ -30,7 +30,7 @@ class ExampleDataManager: VIPERDataManager {
     }
     
     required init() {
-        fatalError("init() has not been implemented")
+        fatalError("init() has not been implemented, use init(dataLimit:Int) instead")
     }
     
     // MARK: - Utilities
