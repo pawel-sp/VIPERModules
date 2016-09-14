@@ -11,9 +11,9 @@ import UIKit
 // MARK: - Base protocols
 
 protocol VIPERWireframeInterface: NSObjectProtocol {
-  
+    
     func module<
-        VIPERViewControllerType:VIPERViewController,
+        VIPERViewControllerType:VIPERViewInterface,
         VIPERPresenterType:VIPERPresenter,
         VIPEREventHandlerType:VIPEREventHandler,
         VIPERInteractorType:VIPERInteractor,
@@ -29,42 +29,6 @@ protocol VIPERWireframeInterface: NSObjectProtocol {
          interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
          dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
         ) -> VIPERViewControllerType
-    
-    func module<
-        VIPERTableViewControllerType:VIPERTableViewController,
-        VIPERPresenterType:VIPERPresenter,
-        VIPEREventHandlerType:VIPEREventHandler,
-        VIPERInteractorType:VIPERInteractor,
-        VIPERDataManagerType:VIPERDataManager>
-        (storyboard:UIStoryboard,
-         viewControllerID:String,
-         presenterType:VIPERPresenterType.Type,
-         eventHandlerType:VIPEREventHandlerType.Type,
-         interactorType:VIPERInteractorType.Type,
-         dataManagerType:VIPERDataManagerType.Type,
-         presenterInitBlock:((VIPERPresenterType.Type) -> (VIPERPresenterType))?,
-         eventHandlerInitBlock:((VIPEREventHandlerType.Type) -> (VIPEREventHandlerType))?,
-         interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
-         dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
-        ) -> VIPERTableViewControllerType
-    
-    func module<
-        VIPERCollectionViewControllerType:VIPERCollectionViewController,
-        VIPERPresenterType:VIPERPresenter,
-        VIPEREventHandlerType:VIPEREventHandler,
-        VIPERInteractorType:VIPERInteractor,
-        VIPERDataManagerType:VIPERDataManager>
-        (storyboard:UIStoryboard,
-         viewControllerID:String,
-         presenterType:VIPERPresenterType.Type,
-         eventHandlerType:VIPEREventHandlerType.Type,
-         interactorType:VIPERInteractorType.Type,
-         dataManagerType:VIPERDataManagerType.Type,
-         presenterInitBlock:((VIPERPresenterType.Type) -> (VIPERPresenterType))?,
-         eventHandlerInitBlock:((VIPEREventHandlerType.Type) -> (VIPEREventHandlerType))?,
-         interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
-         dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
-        ) -> VIPERCollectionViewControllerType
     
 }
 
@@ -132,7 +96,7 @@ protocol VIPERInteractorDelegate: NSObjectProtocol {}
 
 protocol VIPERCustomWireframeInterface: VIPERWireframeInterface {
     
-    associatedtype CustomViewInterfaceType: VIPERViewController
+    associatedtype CustomViewInterfaceType: VIPERViewInterface
     associatedtype CustomPresenterInterfaceType: VIPERPresenter
     associatedtype CustomEventHandlerInterfaceType: VIPEREventHandler
     associatedtype CustomInteractorInterfaceType: VIPERInteractor
@@ -163,7 +127,7 @@ protocol VIPERCustomViewInterface: VIPERViewInterface {
 
 protocol VIPERCustomPresenterInterface: VIPERPresenterInterface {
     
-    associatedtype CustomViewControllerType: VIPERViewController
+    associatedtype CustomViewControllerType: VIPERViewInterface
     associatedtype CustomInteractorDataSourceType: VIPERInteractor
     associatedtype CustomWireframeType: VIPERWireframe
     
@@ -225,7 +189,7 @@ extension VIPERCustomWireframeInterface {
             eventHandlerInitBlock: eventHandlerInitBlock,
             interactorInitBlock: interactorInitBlock,
             dataManagerInitBlock: dataManagerInitBlock
-        )
+        ) 
         
     }
     

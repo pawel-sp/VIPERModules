@@ -22,7 +22,7 @@ class VIPERWireframe: VIPERItem, VIPERWireframeInterface {
     // MARK: - VIPERWireframeInterface
     
     func module<
-        VIPERViewControllerType:VIPERViewController,
+        VIPERViewControllerType:VIPERViewInterface,
         VIPERPresenterType:VIPERPresenter,
         VIPEREventHandlerType:VIPEREventHandler,
         VIPERInteractorType:VIPERInteractor,
@@ -33,118 +33,6 @@ class VIPERWireframe: VIPERItem, VIPERWireframeInterface {
          eventHandlerType:VIPEREventHandlerType.Type,
          interactorType:VIPERInteractorType.Type,
          dataManagerType:VIPERDataManagerType.Type,
-         presenterInitBlock:((VIPERPresenterType.Type) -> (VIPERPresenterType))?,
-         eventHandlerInitBlock:((VIPEREventHandlerType.Type) -> (VIPEREventHandlerType))?,
-         interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
-         dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
-        ) -> VIPERViewControllerType {
-        
-        return module(
-            storyboard: storyboard,
-            viewControllerID: viewControllerID,
-            presenterType: presenterType,
-            eventHandlerType: eventHandlerType,
-            interactorType: interactorType,
-            dataManagerType: dataManagerType,
-            viewControllerConfigBlock: { viewController, presenter, eventHandler in
-                (viewController as? VIPERViewController)?._presenter    = presenter
-                (viewController as? VIPERViewController)?._eventHandler = eventHandler
-            },
-            presenterInitBlock: presenterInitBlock,
-            eventHandlerInitBlock: eventHandlerInitBlock,
-            interactorInitBlock: interactorInitBlock,
-            dataManagerInitBlock: dataManagerInitBlock
-        )
-    }
-    
-    func module<
-        VIPERTableViewControllerType:VIPERTableViewController,
-        VIPERPresenterType:VIPERPresenter,
-        VIPEREventHandlerType:VIPEREventHandler,
-        VIPERInteractorType:VIPERInteractor,
-        VIPERDataManagerType:VIPERDataManager>
-        (storyboard:UIStoryboard,
-         viewControllerID:String,
-         presenterType:VIPERPresenterType.Type,
-         eventHandlerType:VIPEREventHandlerType.Type,
-         interactorType:VIPERInteractorType.Type,
-         dataManagerType:VIPERDataManagerType.Type,
-         presenterInitBlock:((VIPERPresenterType.Type) -> (VIPERPresenterType))?,
-         eventHandlerInitBlock:((VIPEREventHandlerType.Type) -> (VIPEREventHandlerType))?,
-         interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
-         dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
-        ) -> VIPERTableViewControllerType {
-        
-        return module(
-            storyboard: storyboard,
-            viewControllerID: viewControllerID,
-            presenterType: presenterType,
-            eventHandlerType: eventHandlerType,
-            interactorType: interactorType,
-            dataManagerType: dataManagerType,
-            viewControllerConfigBlock: { viewController, presenter, eventHandler in
-                (viewController as? VIPERTableViewController)?._presenter    = presenter
-                (viewController as? VIPERTableViewController)?._eventHandler = eventHandler
-            },
-            presenterInitBlock: presenterInitBlock,
-            eventHandlerInitBlock: eventHandlerInitBlock,
-            interactorInitBlock: interactorInitBlock,
-            dataManagerInitBlock: dataManagerInitBlock
-        )
-    }
-
-    func module<
-        VIPERCollectionViewControllerType:VIPERCollectionViewController,
-        VIPERPresenterType:VIPERPresenter,
-        VIPEREventHandlerType:VIPEREventHandler,
-        VIPERInteractorType:VIPERInteractor,
-        VIPERDataManagerType:VIPERDataManager>
-        (storyboard:UIStoryboard,
-         viewControllerID:String,
-         presenterType:VIPERPresenterType.Type,
-         eventHandlerType:VIPEREventHandlerType.Type,
-         interactorType:VIPERInteractorType.Type,
-         dataManagerType:VIPERDataManagerType.Type,
-         presenterInitBlock:((VIPERPresenterType.Type) -> (VIPERPresenterType))?,
-         eventHandlerInitBlock:((VIPEREventHandlerType.Type) -> (VIPEREventHandlerType))?,
-         interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
-         dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
-        ) -> VIPERCollectionViewControllerType {
-        
-        return module(
-            storyboard: storyboard,
-            viewControllerID: viewControllerID,
-            presenterType: presenterType,
-            eventHandlerType: eventHandlerType,
-            interactorType: interactorType,
-            dataManagerType: dataManagerType,
-            viewControllerConfigBlock: { viewController, presenter, eventHandler in
-                (viewController as? VIPERCollectionViewController)?._presenter    = presenter
-                (viewController as? VIPERCollectionViewController)?._eventHandler = eventHandler
-            },
-            presenterInitBlock: presenterInitBlock,
-            eventHandlerInitBlock: eventHandlerInitBlock,
-            interactorInitBlock: interactorInitBlock,
-            dataManagerInitBlock: dataManagerInitBlock
-        )
-    }
-
-    
-    // MARK: - Private
-    
-    private func module<
-        VIPERViewControllerType:UIViewController,
-        VIPERPresenterType:VIPERPresenter,
-        VIPEREventHandlerType:VIPEREventHandler,
-        VIPERInteractorType:VIPERInteractor,
-        VIPERDataManagerType:VIPERDataManager>
-        (storyboard:UIStoryboard,
-         viewControllerID:String,
-         presenterType:VIPERPresenterType.Type,
-         eventHandlerType:VIPEREventHandlerType.Type,
-         interactorType:VIPERInteractorType.Type,
-         dataManagerType:VIPERDataManagerType.Type,
-         viewControllerConfigBlock:((UIViewController, VIPERPresenterType, VIPEREventHandlerType) -> (Void)),
          presenterInitBlock:((VIPERPresenterType.Type) -> (VIPERPresenterType))?,
          eventHandlerInitBlock:((VIPEREventHandlerType.Type) -> (VIPEREventHandlerType))?,
          interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
@@ -157,7 +45,17 @@ class VIPERWireframe: VIPERItem, VIPERWireframeInterface {
         let dataManager    = dataManagerInitBlock?(dataManagerType) ?? dataManagerType.init()
         
         let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as! VIPERViewControllerType
-        viewControllerConfigBlock(viewController, presenter, eventHandler)
+        
+        if let viperViewController = viewController as? VIPERViewController {
+            viperViewController._presenter    = presenter
+            viperViewController._eventHandler = eventHandler
+        } else if let viperTableViewController = viewController as? VIPERTableViewController {
+            viperTableViewController._presenter    = presenter
+            viperTableViewController._eventHandler = eventHandler
+        } else if let viperCollectionViewController = viewController as? VIPERCollectionViewController {
+            viperCollectionViewController._presenter    = presenter
+            viperCollectionViewController._eventHandler = eventHandler
+        }
         
         presenter._viewInterface        = viewController
         presenter._interactorDataSource = interactor
