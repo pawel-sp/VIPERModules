@@ -8,6 +8,26 @@
 
 import Foundation
 
-class ExamplePresenter: VIPERPresenter, ExamplePresenterInterface {
+class ExamplePresenter: VIPERPresenter, ExamplePresenterInterface, ExampleInteractorDelegate {
 
+    // MARK: - ExamplePresenterInterface
+    
+    func updateViewTitle() {
+        viewInterface.displayNavigationBarTitle(title: "Example Module")
+    }
+    
+    func numberOfRows() -> Int {
+        return interactorDataSource.dataCount()
+    }
+    
+    func titleForRowAtIndexPath(indexPath:IndexPath) -> String {
+        return interactorDataSource.titleForDataAtIndex(index: indexPath.row)
+    }
+    
+    // MARK: - ExampleInteractorDelegate
+    
+    func loadedData() {
+        viewInterface.reloadTableView()
+    }
+    
 }

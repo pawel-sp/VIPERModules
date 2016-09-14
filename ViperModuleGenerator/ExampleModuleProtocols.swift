@@ -6,32 +6,48 @@
 //  Copyright © 2016 Paweł Sporysz. All rights reserved.
 //
 
+import Foundation
+
 protocol ExampleWireframeInterface: VIPERCustomWireframeInterface {
     
 }
 
 protocol ExampleViewInterface:VIPERCustomViewInterface {
     
+    func displayNavigationBarTitle(title:String)
+    func reloadTableView()
+    
 }
 
-protocol ExamplePresenterInterface:VIPERCustomPresenterInterface, VIPERInteractorDelegate {
+protocol ExamplePresenterInterface:VIPERCustomPresenterInterface {
+    
+    func updateViewTitle()
+    func numberOfRows() -> Int
+    func titleForRowAtIndexPath(indexPath:IndexPath) -> String
     
 }
 
 protocol ExampleEventHandlerInterface:VIPERCustomEventHandlerInterface {
     
-    func didSelectButton()
+    func viewDidLoad()
     
 }
 
 protocol ExampleInteractorEventsInterface:VIPERCustomInteractorEventsInterface {
     
+    func loadData()
+    
 }
 
 protocol ExampleInteractorDataSourceInterface:VIPERCustomInteractorDataSourceInterface {
     
+    func dataCount() -> Int
+    func titleForDataAtIndex(index:Int) -> String
+    
 }
 
 protocol ExampleInteractorDelegate:VIPERCustomInteractorDelegate {
+    
+    func loadedData()
     
 }

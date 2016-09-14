@@ -8,10 +8,39 @@
 
 import UIKit
 
-class ExampleViewController: VIPERViewController, ExampleViewInterface {
-
-    @IBAction func buttonAction(_ sender: AnyObject) {
-        eventHandler.didSelectButton()
+class ExampleViewController: VIPERViewController, UITableViewDataSource, ExampleViewInterface {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        eventHandler.viewDidLoad()
     }
+    
+    // MARK: - UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.numberOfRows()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
+        cell.textLabel?.text = presenter.titleForRowAtIndexPath(indexPath: indexPath)
+        return cell
+    }
+    
+    // MARK: - ExampleViewInterface
 
+    func displayNavigationBarTitle(title:String) {
+        self.title = title
+    }
+    
+    func reloadTableView() {
+        self.tableView.reloadData()
+    }
+    
 }

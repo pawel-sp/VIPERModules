@@ -10,4 +10,27 @@ import Foundation
 
 class ExampleInteractor: VIPERInteractor, ExampleInteractorEventsInterface, ExampleInteractorDataSourceInterface {
 
+    // MARK: - Properties
+    
+    private var fetchedData:[DataItemResource] = []
+    
+    // MARK: - ExampleInteractorEventsInterface
+    
+    func loadData() {
+        dataManager.dataRequestWithCompletionBlock { data in
+            self.fetchedData = data
+            self.delegate.loadedData()
+        }
+    }
+    
+    // MARK: - ExampleInteractorDataSourceInterface
+    
+    func dataCount() -> Int {
+        return fetchedData.count
+    }
+    
+    func titleForDataAtIndex(index:Int) -> String {
+        return fetchedData[index].name
+    }
+    
 }

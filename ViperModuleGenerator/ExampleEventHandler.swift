@@ -10,8 +10,11 @@ import Foundation
 
 class ExampleEventHandler: VIPEREventHandler, ExampleEventHandlerInterface {
     
-    func didSelectButton() {
-        print("OK")
+    // MARK: - ExampleEventHandlerInterface
+    
+    func viewDidLoad() {
+        presenter.updateViewTitle()
+        interactorEvents.loadData()
     }
     
 }
