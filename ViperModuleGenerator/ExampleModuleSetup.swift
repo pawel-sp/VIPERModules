@@ -6,6 +6,8 @@
 //  Copyright © 2016 Paweł Sporysz. All rights reserved.
 //
 
+// MARK: - Extensions
+
 extension ExampleInteractor {
     
     typealias CustomDelegateType    = ExamplePresenter
@@ -15,23 +17,23 @@ extension ExampleInteractor {
 
 extension ExampleEventHandler {
     
-    typealias CustomPresenterInterfaceType        = ExamplePresenter
-    typealias CustomInteractorEventsInterfaceType = ExampleInteractor
+    typealias CustomPresenterType        = ExamplePresenter
+    typealias CustomInteractorEventsType = ExampleInteractor
     
 }
 
 extension ExamplePresenter {
     
-    typealias CustomViewInterfaceType                 = ExampleViewController
-    typealias CustomInteractorDataSourceInterfaceType = ExampleInteractor
-    typealias CustomWireframeType                     = ExampleWireframe
+    typealias CustomViewControllerType       = ExampleViewController
+    typealias CustomInteractorDataSourceType = ExampleInteractor
+    typealias CustomWireframeType            = ExampleWireframe
     
 }
 
 extension ExampleViewController {
     
-    typealias CustomPresenterInterfaceType    = ExamplePresenter
-    typealias CustomEventHandlerInterfaceType = ExampleEventHandler
+    typealias CustomPresenterType    = ExamplePresenter
+    typealias CustomEventHandlerType = ExampleEventHandler
     
 }
 

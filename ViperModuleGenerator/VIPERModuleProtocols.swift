@@ -95,39 +95,39 @@ protocol VIPERCustomWireframeInterface: VIPERWireframeInterface {
 
 protocol VIPERCustomViewInterface: VIPERViewInterface {
     
-    associatedtype CustomPresenterInterfaceType
-    associatedtype CustomEventHandlerInterfaceType
+    associatedtype CustomPresenterType: VIPERPresenter
+    associatedtype CustomEventHandlerType: VIPEREventHandler
     
-    var presenter: CustomPresenterInterfaceType { get }
-    var eventHandler: CustomEventHandlerInterfaceType { get }
+    var presenter: CustomPresenterType { get }
+    var eventHandler: CustomEventHandlerType { get }
     
 }
 
 protocol VIPERCustomPresenterInterface: VIPERPresenterInterface {
     
-    associatedtype CustomViewInterfaceType
-    associatedtype CustomInteractorDataSourceInterfaceType
-    associatedtype CustomWireframeType
+    associatedtype CustomViewControllerType: VIPERViewController
+    associatedtype CustomInteractorDataSourceType: VIPERInteractor
+    associatedtype CustomWireframeType: VIPERWireframe
     
-    var viewInterface: CustomViewInterfaceType { get }
-    var interactorDataSource: CustomInteractorDataSourceInterfaceType { get }
+    var viewInterface: CustomViewControllerType { get }
+    var interactorDataSource: CustomInteractorDataSourceType { get }
     var wireframe:CustomWireframeType { get }
     
 }
 
 protocol VIPERCustomEventHandlerInterface: VIPEREventHandlerInterface {
     
-    associatedtype CustomPresenterInterfaceType
-    associatedtype CustomInteractorEventsInterfaceType
+    associatedtype CustomPresenterType: VIPERPresenter
+    associatedtype CustomInteractorEventsType: VIPERInteractor
     
-    var presenter: CustomPresenterInterfaceType { get }
-    var interactorEvents: CustomInteractorEventsInterfaceType { get }
+    var presenter: CustomPresenterType { get }
+    var interactorEvents: CustomInteractorEventsType { get }
     
 }
 
 protocol VIPERCustomInteractorEventsInterface: VIPERInteractorEventsInterface {
     
-    associatedtype CustomDelegateType
+    associatedtype CustomDelegateType: VIPERPresenter
     
     var delegate: CustomDelegateType { get }
     
@@ -135,7 +135,7 @@ protocol VIPERCustomInteractorEventsInterface: VIPERInteractorEventsInterface {
 
 protocol VIPERCustomInteractorDataSourceInterface: VIPERInteractorDataSourceInterface {
     
-    associatedtype CustomDataManagerType
+    associatedtype CustomDataManagerType: VIPERDataManager
     
     var dataManager: CustomDataManagerType { get }
     
@@ -165,23 +165,23 @@ extension VIPERCustomWireframeInterface {
 
 extension VIPERCustomViewInterface {
     
-    var presenter:CustomPresenterInterfaceType { return _presenter as! CustomPresenterInterfaceType }
-    var eventHandler:CustomEventHandlerInterfaceType { return _eventHandler as! CustomEventHandlerInterfaceType }
+    var presenter:CustomPresenterType { return _presenter as! CustomPresenterType }
+    var eventHandler:CustomEventHandlerType { return _eventHandler as! CustomEventHandlerType }
     
 }
 
 extension VIPERCustomPresenterInterface {
     
-    var viewInterface: CustomViewInterfaceType { return _viewInterface as! CustomViewInterfaceType }
-    var interactorDataSource: CustomInteractorDataSourceInterfaceType { return _interactorDataSource as! CustomInteractorDataSourceInterfaceType }
+    var viewInterface: CustomViewControllerType { return _viewInterface as! CustomViewControllerType }
+    var interactorDataSource: CustomInteractorDataSourceType { return _interactorDataSource as! CustomInteractorDataSourceType }
     var wireframe:CustomWireframeType { return _wireframe as! CustomWireframeType }
     
 }
 
 extension VIPERCustomEventHandlerInterface {
     
-    var presenter: CustomPresenterInterfaceType { return _presenter as! CustomPresenterInterfaceType }
-    var interactorEvents: CustomInteractorEventsInterfaceType { return _interactorEvents as! CustomInteractorEventsInterfaceType }
+    var presenter: CustomPresenterType { return _presenter as! CustomPresenterType }
+    var interactorEvents: CustomInteractorEventsType { return _interactorEvents as! CustomInteractorEventsType }
     
 }
 

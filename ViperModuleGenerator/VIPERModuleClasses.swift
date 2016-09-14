@@ -19,7 +19,7 @@ class VIPERItem: NSObject {
 
 class VIPERWireframe: VIPERItem, VIPERWireframeInterface {
     
-    // MARK: - Utilities
+    // MARK: - VIPERWireframeInterface
     
     func module<VIPERViewControllerType:VIPERViewController, VIPERPresenterType:VIPERPresenter, VIPEREventHandlerType:VIPEREventHandler, VIPERInteractorType:VIPERInteractor, VIPERDataManagerType:VIPERDataManager>(storyboard:UIStoryboard, viewControllerID:String, presenterType:VIPERPresenterType.Type, eventHandlerType:VIPEREventHandlerType.Type, interactorType:VIPERInteractorType.Type, dataManagerType:VIPERDataManagerType.Type) -> VIPERViewControllerType {
         

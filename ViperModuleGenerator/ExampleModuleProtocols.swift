@@ -12,14 +12,14 @@ protocol ExampleWireframeInterface: VIPERCustomWireframeInterface {
     
 }
 
-protocol ExampleViewInterface:VIPERCustomViewInterface {
+protocol ExampleViewInterface: VIPERCustomViewInterface {
     
     func displayNavigationBarTitle(title:String)
     func reloadTableView()
     
 }
 
-protocol ExamplePresenterInterface:VIPERCustomPresenterInterface {
+protocol ExamplePresenterInterface: VIPERCustomPresenterInterface {
     
     func updateViewTitle()
     func numberOfRows() -> Int
@@ -27,26 +27,26 @@ protocol ExamplePresenterInterface:VIPERCustomPresenterInterface {
     
 }
 
-protocol ExampleEventHandlerInterface:VIPERCustomEventHandlerInterface {
+protocol ExampleEventHandlerInterface: VIPERCustomEventHandlerInterface {
     
     func viewDidLoad()
     
 }
 
-protocol ExampleInteractorEventsInterface:VIPERCustomInteractorEventsInterface {
+protocol ExampleInteractorEventsInterface: VIPERCustomInteractorEventsInterface {
     
     func loadData()
     
 }
 
-protocol ExampleInteractorDataSourceInterface:VIPERCustomInteractorDataSourceInterface {
+protocol ExampleInteractorDataSourceInterface: VIPERCustomInteractorDataSourceInterface {
     
     func dataCount() -> Int
     func titleForDataAtIndex(index:Int) -> String
     
 }
 
-protocol ExampleInteractorDelegate:VIPERCustomInteractorDelegate {
+protocol ExampleInteractorDelegate: VIPERCustomInteractorDelegate {
     
     func loadedData()
     
