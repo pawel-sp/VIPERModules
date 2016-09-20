@@ -39,7 +39,6 @@
 		A4B5EE941D9017080011978D /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EE931D9017080011978D /* Array+Random.swift */; };
 		A4B5EE961D901C7F0011978D /* VIPERFetchResultControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EE951D901C7F0011978D /* VIPERFetchResultControllerProtocols.swift */; };
 		A4B5EE9C1D9155DC0011978D /* VIPERFetchResultControllerClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EE9B1D9155DC0011978D /* VIPERFetchResultControllerClasses.swift */; };
-		A4B5EE9E1D9157BE0011978D /* Set+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EE9D1D9157BE0011978D /* Set+Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +76,6 @@
 		A4B5EE931D9017080011978D /* Array+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Random.swift"; sourceTree = "<group>"; };
 		A4B5EE951D901C7F0011978D /* VIPERFetchResultControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERFetchResultControllerProtocols.swift; sourceTree = "<group>"; };
 		A4B5EE9B1D9155DC0011978D /* VIPERFetchResultControllerClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERFetchResultControllerClasses.swift; sourceTree = "<group>"; };
-		A4B5EE9D1D9157BE0011978D /* Set+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Array.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				A4B5EE931D9017080011978D /* Array+Random.swift */,
-				A4B5EE9D1D9157BE0011978D /* Set+Array.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -320,7 +317,6 @@
 				A4B5EE901D9010180011978D /* PersonEntity+CoreDataSortDescriptors.swift in Sources */,
 				A4B5EE8A1D9006000011978D /* PersonInfo.swift in Sources */,
 				A41A80D91D8943C5005364DA /* ExampleViewController.swift in Sources */,
-				A4B5EE9E1D9157BE0011978D /* Set+Array.swift in Sources */,
 				A41BEEBE1D8FCE72008B429A /* StartTableViewController.swift in Sources */,
 				A41A80D31D8943C5005364DA /* ExampleModuleProtocols.swift in Sources */,
 				A41BEECF1D8FD12B008B429A /* NSFRCPresenter.swift in Sources */,

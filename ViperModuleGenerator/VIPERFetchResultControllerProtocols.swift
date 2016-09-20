@@ -46,9 +46,9 @@ extension VIPERTableViewController: VIPERFetchResultControllerViewInterface {
         tableView.beginUpdates()
         tableView.insertSections(updateInfo.insertedSections, with: animationForInsertedSections(updateInfo.insertedSections))
         tableView.deleteSections(updateInfo.deletedSections, with: animationForDeletedSections(updateInfo.deletedSections))
-        tableView.insertRows(at: updateInfo.insertedIndexPaths.array, with: animationForInsertedIndexPaths(updateInfo.insertedIndexPaths.array))
-        tableView.deleteRows(at: updateInfo.deletedIndexPaths.array, with: animationForDeletedIndexPaths(updateInfo.deletedIndexPaths.array))
-        tableView.reloadRows(at: updateInfo.updatedIndexPaths.array, with: animationForReloadedIndexPaths(updateInfo.updatedIndexPaths.array))
+        tableView.insertRows(at: updateInfo.insertedIndexPaths.filter({ _ in true }), with: animationForInsertedIndexPaths(updateInfo.insertedIndexPaths.filter({ _ in true })))
+        tableView.deleteRows(at: updateInfo.deletedIndexPaths.filter({ _ in true }), with: animationForDeletedIndexPaths(updateInfo.deletedIndexPaths.filter({ _ in true })))
+        tableView.reloadRows(at: updateInfo.updatedIndexPaths.filter({ _ in true }), with: animationForReloadedIndexPaths(updateInfo.updatedIndexPaths.filter({ _ in true })))
         tableView.endUpdates()
     }
     
@@ -66,9 +66,9 @@ extension VIPERCollectionViewController: VIPERFetchResultControllerViewInterface
         collectionView?.performBatchUpdates({
             self.collectionView?.insertSections(updateInfo.insertedSections)
             self.collectionView?.deleteSections(updateInfo.insertedSections)
-            self.collectionView?.insertItems(at: updateInfo.insertedIndexPaths.array)
-            self.collectionView?.deleteItems(at: updateInfo.deletedIndexPaths.array)
-            self.collectionView?.reloadItems(at: updateInfo.updatedIndexPaths.array)
+            self.collectionView?.insertItems(at: updateInfo.insertedIndexPaths.filter({ _ in true }))
+            self.collectionView?.deleteItems(at: updateInfo.deletedIndexPaths.filter({ _ in true }))
+            self.collectionView?.reloadItems(at: updateInfo.updatedIndexPaths.filter({ _ in true }))
         })
     }
     
