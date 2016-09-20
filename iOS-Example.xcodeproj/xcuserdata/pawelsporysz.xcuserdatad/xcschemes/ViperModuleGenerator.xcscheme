@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A423CB551D8942280057B748"
-               BuildableName = "ViperModuleGenerator.app"
-               BlueprintName = "ViperModuleGenerator"
-               ReferencedContainer = "container:ViperModuleGenerator.xcodeproj">
+               BuildableName = "iOS-Example.app"
+               BlueprintName = "iOS-Example"
+               ReferencedContainer = "container:iOS-Example.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A423CB551D8942280057B748"
-            BuildableName = "ViperModuleGenerator.app"
-            BlueprintName = "ViperModuleGenerator"
-            ReferencedContainer = "container:ViperModuleGenerator.xcodeproj">
+            BuildableName = "iOS-Example.app"
+            BlueprintName = "iOS-Example"
+            ReferencedContainer = "container:iOS-Example.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A423CB551D8942280057B748"
-            BuildableName = "ViperModuleGenerator.app"
-            BlueprintName = "ViperModuleGenerator"
-            ReferencedContainer = "container:ViperModuleGenerator.xcodeproj">
+            BuildableName = "iOS-Example.app"
+            BlueprintName = "iOS-Example"
+            ReferencedContainer = "container:iOS-Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A423CB551D8942280057B748"
-            BuildableName = "ViperModuleGenerator.app"
-            BlueprintName = "ViperModuleGenerator"
-            ReferencedContainer = "container:ViperModuleGenerator.xcodeproj">
+            BuildableName = "iOS-Example.app"
+            BlueprintName = "iOS-Example"
+            ReferencedContainer = "container:iOS-Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
