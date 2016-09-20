@@ -22,14 +22,35 @@ To install templates for VIPER modules you need to copy ```Templates/Viper``` fo
 ```
 There are templates for supporting UIViewController, UITableViewController and UICollectionViewController
 
+## Install
+
+You can install VIPERModules via CococaPods, put that line to your Podfile:
+
+```
+pod 'VIPERModules', :git => "https://bitbucket.org/pawel-sp/vipermodulegenerator.git"
+```
+
 ## Creating modules
 
 There are few steps which you need to do to create new module:
 
-- Copy base classes and protocols for supporting VIPER modules into your project (VIPERModuleClasses.swift and VIPERModuleProtocols.swift from 
-```
-/ViperModuleGenerator/Base
-```). 
 - Create new file using VIPER templates. After that you should see 8 new files which represent all layers of single VIPER module
 - You shouldn't change file called ABCModuleSetup.swift. There are typealiases setup for whole module. 
 
+## NSFetchResultController
+
+VIPERModules supports NSFetchResultController. After creating new module files using Templates you need to do following things:
+
+- Add another base protocol to NewModuleViewInterface protocol -> VIPERFetchResultControllerViewInterface (NewModuleProtocols.swift)
+- Add another base protocol to NewModuleInteractorEventsInterface protocol -> VIPERFetchResultControllerInteractorEventsInterface (NewModuleProtocols.swift)
+- Add another base protocol to NewModuleInteractorDelegate protocol -> VIPERFetchResultControllerInteractorEventsDelegate (NewModuleProtocols.swift)
+- Change base class for NewModulePresenter from VIPERPresenter to VIPERFetchResultControllerPresenter
+- Assign your delegate of NSFetchResultController object to interactor.
+
+There is no additional code to put into modules, all parts responsible for refreshing view are inside extensions. The only thing you need to take care of is add/remove/change object using NSFetchResultController object.
+
+## Example 
+You can run iOS-Example project to check all features. There are to separate modules:
+
+- First one is the easiest possible module only to show dependencies between module parts
+- Second one presents how to use NSFetchResultController with VIPERModules
