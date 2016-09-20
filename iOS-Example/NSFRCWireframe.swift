@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VIPERModules
 
 class NSFRCWireframe: VIPERWireframe, NSFRCWireframeInterface {
     

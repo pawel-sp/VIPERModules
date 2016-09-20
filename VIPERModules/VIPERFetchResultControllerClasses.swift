@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-struct DataUpdateInfo {
+public struct VIPERFetchResultControllerUpdateInfo {
     
     var insertedSections   = IndexSet()
     var deletedSections    = IndexSet()
@@ -27,7 +27,7 @@ struct DataUpdateInfo {
     }
 }
 
-class VIPERFetchResultControllerPresenter: VIPERPresenter, VIPERFetchResultControllerInteractorEventsDelegate {
+open class VIPERFetchResultControllerPresenter: VIPERPresenter, VIPERFetchResultControllerInteractorEventsDelegate {
     
     // MARK: - Properties
     
@@ -37,9 +37,9 @@ class VIPERFetchResultControllerPresenter: VIPERPresenter, VIPERFetchResultContr
     
     // MARK: - VIPERFetchResultControllerInteractorEventsDelegate
     
-    var dataUpdateInfo:DataUpdateInfo?
+    public var dataUpdateInfo:VIPERFetchResultControllerUpdateInfo?
     
-    func controllerDidChangeObjectAtIndexPath(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    public func controllerDidChangeObjectAtIndexPath(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch (type) {
             case .insert:
                 guard let newIndexPath = newIndexPath else { break }
@@ -57,7 +57,7 @@ class VIPERFetchResultControllerPresenter: VIPERPresenter, VIPERFetchResultContr
         }
     }
     
-    func controllerDidChangeSectionInfoAtSectionIndex(_ sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+    public func controllerDidChangeSectionInfoAtSectionIndex(_ sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch (type) {
             case .insert:
                 dataUpdateInfo?.insertedSections.insert(sectionIndex)
@@ -70,11 +70,11 @@ class VIPERFetchResultControllerPresenter: VIPERPresenter, VIPERFetchResultContr
         }
     }
     
-    func controllerWillChangeContent() {
-        dataUpdateInfo = DataUpdateInfo()
+    public func controllerWillChangeContent() {
+        dataUpdateInfo = VIPERFetchResultControllerUpdateInfo()
     }
     
-    func controllerDidChangeContent() {
+    public func controllerDidChangeContent() {
         if let updateInfo = dataUpdateInfo {
             fetchResultControllerViewInterface?.updateViewWithInfo(updateInfo)
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VIPERItem: NSObject {
+open class VIPERItem: NSObject {
     
     deinit {
         print("VIPER: \(type(of:self)) deallocated")
@@ -17,11 +17,11 @@ class VIPERItem: NSObject {
 }
 
 
-class VIPERWireframe: VIPERItem, VIPERWireframeInterface {
+open class VIPERWireframe: VIPERItem, VIPERWireframeInterface {
     
     // MARK: - VIPERWireframeInterface
     
-    func module<
+    public func module<
         VIPERViewControllerType:VIPERViewInterface,
         VIPERPresenterType:VIPERPresenter,
         VIPEREventHandlerType:VIPEREventHandler,
@@ -72,7 +72,7 @@ class VIPERWireframe: VIPERItem, VIPERWireframeInterface {
     
 }
 
-class VIPERViewController: UIViewController, VIPERViewInterface {
+open class VIPERViewController: UIViewController, VIPERViewInterface {
     
     // MARK: - Init & deinit
     
@@ -82,15 +82,15 @@ class VIPERViewController: UIViewController, VIPERViewInterface {
     
     // MARK: - VIPERViewInterface
     
-    typealias PresenterInterfaceType    = AnyObject
-    typealias EventHandlerInterfaceType = AnyObject
+    public typealias PresenterInterfaceType    = AnyObject
+    public typealias EventHandlerInterfaceType = AnyObject
     
-    var _presenter: PresenterInterfaceType!
-    var _eventHandler: EventHandlerInterfaceType!
+    public var _presenter: PresenterInterfaceType!
+    public var _eventHandler: EventHandlerInterfaceType!
     
 }
 
-class VIPERTableViewController: UITableViewController, VIPERViewInterface {
+open class VIPERTableViewController: UITableViewController, VIPERViewInterface {
     
     // MARK: - Init & deinit
     
@@ -100,15 +100,15 @@ class VIPERTableViewController: UITableViewController, VIPERViewInterface {
     
     // MARK: - VIPERViewInterface
     
-    typealias PresenterInterfaceType    = AnyObject
-    typealias EventHandlerInterfaceType = AnyObject
+    public typealias PresenterInterfaceType    = AnyObject
+    public typealias EventHandlerInterfaceType = AnyObject
     
-    var _presenter: PresenterInterfaceType!
-    var _eventHandler: EventHandlerInterfaceType!
+    public var _presenter: PresenterInterfaceType!
+    public var _eventHandler: EventHandlerInterfaceType!
     
 }
 
-class VIPERCollectionViewController: UICollectionViewController, VIPERViewInterface {
+open class VIPERCollectionViewController: UICollectionViewController, VIPERViewInterface {
     
     // MARK: - Init & deinit
     
@@ -118,27 +118,27 @@ class VIPERCollectionViewController: UICollectionViewController, VIPERViewInterf
     
     // MARK: - VIPERViewInterface
     
-    typealias PresenterInterfaceType    = AnyObject
-    typealias EventHandlerInterfaceType = AnyObject
+    public typealias PresenterInterfaceType    = AnyObject
+    public typealias EventHandlerInterfaceType = AnyObject
     
-    var _presenter: PresenterInterfaceType!
-    var _eventHandler: EventHandlerInterfaceType!
+    public var _presenter: PresenterInterfaceType!
+    public var _eventHandler: EventHandlerInterfaceType!
     
 }
 
-class VIPERPresenter: VIPERItem, VIPERPresenterInterface, VIPERInteractorDelegate {
+open class VIPERPresenter: VIPERItem, VIPERPresenterInterface, VIPERInteractorDelegate {
 
     // MARK: - VIPERPresenterInterface
     
-    typealias ViewInterfaceType                 = AnyObject
-    typealias InteractorDataSourceInterfaceType = AnyObject
-    typealias WireframeType                     = AnyObject
+    public typealias ViewInterfaceType                 = AnyObject
+    public typealias InteractorDataSourceInterfaceType = AnyObject
+    public typealias WireframeType                     = AnyObject
     
-    weak var _viewInterface: ViewInterfaceType!
-    weak var _interactorDataSource: InteractorDataSourceInterfaceType!
-    var _wireframe: WireframeType!
+    public weak var _viewInterface: ViewInterfaceType!
+    public weak var _interactorDataSource: InteractorDataSourceInterfaceType!
+    public var _wireframe: WireframeType!
     
-    required override init() {
+    required override public init() {
         super.init()
     }
 
@@ -146,49 +146,49 @@ class VIPERPresenter: VIPERItem, VIPERPresenterInterface, VIPERInteractorDelegat
     
 }
 
-class VIPEREventHandler: VIPERItem, VIPEREventHandlerInterface {
+open class VIPEREventHandler: VIPERItem, VIPEREventHandlerInterface {
 
     // MARK: - VIPEREventHandlerInterface
     
-    typealias PresenterInterfaceType        = AnyObject
-    typealias InteractorEventsInterfaceType = AnyObject
+    public typealias PresenterInterfaceType        = AnyObject
+    public typealias InteractorEventsInterfaceType = AnyObject
     
-    weak var _presenter: PresenterInterfaceType!
-    var _interactorEvents: InteractorEventsInterfaceType!
+    public weak var _presenter: PresenterInterfaceType!
+    public var _interactorEvents: InteractorEventsInterfaceType!
     
-    required override init() {
+    required override public init() {
         super.init()
     }
     
 }
 
-class VIPERInteractor: VIPERItem, VIPERInteractorDataSourceInterface, VIPERInteractorEventsInterface {
+open class VIPERInteractor: VIPERItem, VIPERInteractorDataSourceInterface, VIPERInteractorEventsInterface {
 
     // MARK: - VIPERInteractorInterface
     
-    required override init() {
+    required override public init() {
         super.init()
     }
     
     // MARK: - VIPERInteractorEventsInterface
     
-    typealias DelegateType = AnyObject
+    public typealias DelegateType = AnyObject
     
-    weak var _delegate: DelegateType!
+    public weak var _delegate: DelegateType!
     
     // MARK: - VIPERInteractorDataSourceInterface
     
-    typealias DataManagerType = AnyObject
+    public typealias DataManagerType = AnyObject
     
-    var _dataManager: DataManagerType!
+    public var _dataManager: DataManagerType!
     
 }
 
-class VIPERDataManager: VIPERItem {
+open class VIPERDataManager: VIPERItem {
     
     // MARK: - Init
     
-    required override init() {
+    required override public init() {
         super.init()
     }
     

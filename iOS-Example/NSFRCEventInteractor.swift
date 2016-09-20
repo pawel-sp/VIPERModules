@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import VIPERModules
 
 class NSFRCInteractor: VIPERInteractor, NSFRCInteractorEventsInterface, NSFRCInteractorDataSourceInterface {
 

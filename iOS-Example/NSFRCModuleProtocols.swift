@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import VIPERModules
 
 protocol NSFRCWireframeInterface: VIPERCustomWireframeInterface {
     

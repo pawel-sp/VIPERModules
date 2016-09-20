@@ -6,6 +6,8 @@
 //  Copyright © 2016 Paweł Sporysz. All rights reserved.
 //
 
+import VIPERModules
+
 class NSFRCEventHandler: VIPEREventHandler, NSFRCEventHandlerInterface {
     
     // MARK: - NSFRCEventHandlerInterface

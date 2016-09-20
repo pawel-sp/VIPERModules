@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Base protocols
 
-protocol VIPERWireframeInterface: NSObjectProtocol {
+public protocol VIPERWireframeInterface: NSObjectProtocol {
     
     func module<
         VIPERViewControllerType:VIPERViewInterface,
@@ -32,7 +32,7 @@ protocol VIPERWireframeInterface: NSObjectProtocol {
     
 }
 
-protocol VIPERViewInterface: NSObjectProtocol {
+public protocol VIPERViewInterface: NSObjectProtocol {
 
     associatedtype PresenterInterfaceType
     associatedtype EventHandlerInterfaceType
@@ -42,7 +42,7 @@ protocol VIPERViewInterface: NSObjectProtocol {
 
 }
 
-protocol VIPERPresenterInterface: NSObjectProtocol {
+public protocol VIPERPresenterInterface: NSObjectProtocol {
 
     associatedtype ViewInterfaceType
     associatedtype InteractorDataSourceInterfaceType
@@ -56,7 +56,7 @@ protocol VIPERPresenterInterface: NSObjectProtocol {
 
 }
 
-protocol VIPEREventHandlerInterface: NSObjectProtocol {
+public protocol VIPEREventHandlerInterface: NSObjectProtocol {
 
     associatedtype PresenterInterfaceType
     associatedtype InteractorEventsInterfaceType
@@ -68,13 +68,13 @@ protocol VIPEREventHandlerInterface: NSObjectProtocol {
     
 }
 
-protocol VIPERInteractorInterface: NSObjectProtocol {
+public protocol VIPERInteractorInterface: NSObjectProtocol {
     
     init()
     
 }
 
-protocol VIPERInteractorEventsInterface: VIPERInteractorInterface {
+public protocol VIPERInteractorEventsInterface: VIPERInteractorInterface {
 
     associatedtype DelegateType
     
@@ -82,7 +82,7 @@ protocol VIPERInteractorEventsInterface: VIPERInteractorInterface {
 
 }
 
-protocol VIPERInteractorDataSourceInterface: VIPERInteractorInterface {
+public protocol VIPERInteractorDataSourceInterface: VIPERInteractorInterface {
 
     associatedtype DataManagerType
     
@@ -90,11 +90,11 @@ protocol VIPERInteractorDataSourceInterface: VIPERInteractorInterface {
 
 }
 
-protocol VIPERInteractorDelegate: NSObjectProtocol {}
+public protocol VIPERInteractorDelegate: NSObjectProtocol {}
 
 // MARK: - Custom protocols
 
-protocol VIPERCustomWireframeInterface: VIPERWireframeInterface {
+public protocol VIPERCustomWireframeInterface: VIPERWireframeInterface {
     
     associatedtype CustomViewInterfaceType: VIPERViewInterface
     associatedtype CustomPresenterInterfaceType: VIPERPresenter
@@ -115,7 +115,7 @@ protocol VIPERCustomWireframeInterface: VIPERWireframeInterface {
     
 }
 
-protocol VIPERCustomViewInterface: VIPERViewInterface {
+public protocol VIPERCustomViewInterface: VIPERViewInterface {
     
     associatedtype CustomPresenterType: VIPERPresenter
     associatedtype CustomEventHandlerType: VIPEREventHandler
@@ -125,7 +125,7 @@ protocol VIPERCustomViewInterface: VIPERViewInterface {
     
 }
 
-protocol VIPERCustomPresenterInterface: VIPERPresenterInterface {
+public protocol VIPERCustomPresenterInterface: VIPERPresenterInterface {
     
     associatedtype CustomViewControllerType: VIPERViewInterface
     associatedtype CustomInteractorDataSourceType: VIPERInteractor
@@ -137,7 +137,7 @@ protocol VIPERCustomPresenterInterface: VIPERPresenterInterface {
     
 }
 
-protocol VIPERCustomEventHandlerInterface: VIPEREventHandlerInterface {
+public protocol VIPERCustomEventHandlerInterface: VIPEREventHandlerInterface {
     
     associatedtype CustomPresenterType: VIPERPresenter
     associatedtype CustomInteractorEventsType: VIPERInteractor
@@ -147,7 +147,7 @@ protocol VIPERCustomEventHandlerInterface: VIPEREventHandlerInterface {
     
 }
 
-protocol VIPERCustomInteractorEventsInterface: VIPERInteractorEventsInterface {
+public protocol VIPERCustomInteractorEventsInterface: VIPERInteractorEventsInterface {
     
     associatedtype CustomDelegateType: VIPERPresenter
     
@@ -155,7 +155,7 @@ protocol VIPERCustomInteractorEventsInterface: VIPERInteractorEventsInterface {
     
 }
 
-protocol VIPERCustomInteractorDataSourceInterface: VIPERInteractorDataSourceInterface {
+public protocol VIPERCustomInteractorDataSourceInterface: VIPERInteractorDataSourceInterface {
     
     associatedtype CustomDataManagerType: VIPERDataManager
     
@@ -163,14 +163,13 @@ protocol VIPERCustomInteractorDataSourceInterface: VIPERInteractorDataSourceInte
     
 }
 
-protocol VIPERCustomInteractorDelegate: VIPERInteractorDelegate {
-    
-    
+public protocol VIPERCustomInteractorDelegate: VIPERInteractorDelegate {
+
 }
 
 // MARK: - Extensions
 
-extension VIPERCustomWireframeInterface {
+public extension VIPERCustomWireframeInterface {
     
     func customModule(
         presenterInitBlock: ((CustomPresenterInterfaceType.Type) -> (CustomPresenterInterfaceType))?,
@@ -204,14 +203,14 @@ extension VIPERCustomWireframeInterface {
     
 }
 
-extension VIPERCustomViewInterface {
+public extension VIPERCustomViewInterface {
     
     var presenter:CustomPresenterType { return _presenter as! CustomPresenterType }
     var eventHandler:CustomEventHandlerType { return _eventHandler as! CustomEventHandlerType }
     
 }
 
-extension VIPERCustomPresenterInterface {
+public extension VIPERCustomPresenterInterface {
     
     var viewInterface: CustomViewControllerType { return _viewInterface as! CustomViewControllerType }
     var interactorDataSource: CustomInteractorDataSourceType { return _interactorDataSource as! CustomInteractorDataSourceType }
@@ -219,20 +218,20 @@ extension VIPERCustomPresenterInterface {
     
 }
 
-extension VIPERCustomEventHandlerInterface {
+public extension VIPERCustomEventHandlerInterface {
     
     var presenter: CustomPresenterType { return _presenter as! CustomPresenterType }
     var interactorEvents: CustomInteractorEventsType { return _interactorEvents as! CustomInteractorEventsType }
     
 }
 
-extension VIPERCustomInteractorEventsInterface {
+public extension VIPERCustomInteractorEventsInterface {
     
     var delegate: CustomDelegateType { return _delegate as! CustomDelegateType }
     
 }
 
-extension VIPERCustomInteractorDataSourceInterface {
+public extension VIPERCustomInteractorDataSourceInterface {
     
     var dataManager: CustomDataManagerType { return _dataManager as! CustomDataManagerType }
     

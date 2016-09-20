@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import VIPERModules
 
 class ExamplePresenter: VIPERPresenter, ExamplePresenterInterface, ExampleInteractorDelegate {
 

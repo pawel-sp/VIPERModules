@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>iOS-Example.xcscheme</key>
+		<key>VIPERModules.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A423CB551D8942280057B748</key>
+		<key>A4B5EEC91D9164660011978D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
