@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-  s.name         = "ViperModuleGenerator"
+  s.name         = "ViperModules"
   s.version      = "0.1"
-  s.summary      = "ViperModuleGenerator"
+  s.summary      = "ViperModules"
   s.homepage     = "https://bitbucket.org/pawel-sp/vipermodulegenerator/"
   s.license      = "MIT"
   s.author       = { "Paweł Sporysz" => "pawel.s@untitledkingdom.co" }
