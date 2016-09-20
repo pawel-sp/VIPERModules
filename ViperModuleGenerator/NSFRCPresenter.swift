@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NSFRCPresenter: VIPERPresenter, NSFRCPresenterInterface, NSFRCInteractorDelegate {
+class NSFRCPresenter: VIPERFetchResultControllerPresenter, NSFRCPresenterInterface, NSFRCInteractorDelegate {
     
     // MARK: - NSFRCPresenterInterface
 

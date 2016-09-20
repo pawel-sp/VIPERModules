@@ -7,19 +7,14 @@
 //
 
 import Foundation
+import UIKit
 import CoreData
 
 // MARK: - Base Protocols
 
 protocol VIPERFetchResultControllerViewInterface {
     
-    func beginViewUpdates()
-    func endViewUpdates()
-    func reloadCellsAtIndexPaths(_ indexPaths: [IndexPath])
-    func insertCellsAtIndexPaths(_ indexPaths: [IndexPath])
-    func deleteCellsAtIndexPaths(_ indexPaths: [IndexPath])
-    func insertSections(sectionsSet: IndexSet)
-    func deleteSections(sectionsSet: IndexSet)
+    func updateViewWithInfo(_ updateInfo:DataUpdateInfo)
     
 }
 
@@ -34,6 +29,8 @@ protocol VIPERFetchResultControllerInteractorEventsInterface: NSFetchedResultsCo
 
 protocol VIPERFetchResultControllerInteractorEventsDelegate {
     
+    var dataUpdateInfo:DataUpdateInfo? { get }
+    
     func controllerDidChangeObjectAtIndexPath(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
     func controllerDidChangeSectionInfoAtSectionIndex(_ sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
     func controllerWillChangeContent()
@@ -45,99 +42,34 @@ protocol VIPERFetchResultControllerInteractorEventsDelegate {
 
 extension VIPERTableViewController: VIPERFetchResultControllerViewInterface {
     
-    func beginViewUpdates() {
+    func updateViewWithInfo(_ updateInfo:DataUpdateInfo) {
         tableView.beginUpdates()
-    }
-    
-    func endViewUpdates() {
+        tableView.insertSections(updateInfo.insertedSections, with: animationForInsertedSections(updateInfo.insertedSections))
+        tableView.deleteSections(updateInfo.deletedSections, with: animationForDeletedSections(updateInfo.deletedSections))
+        tableView.insertRows(at: updateInfo.insertedIndexPaths.array, with: animationForInsertedIndexPaths(updateInfo.insertedIndexPaths.array))
+        tableView.deleteRows(at: updateInfo.deletedIndexPaths.array, with: animationForDeletedIndexPaths(updateInfo.deletedIndexPaths.array))
+        tableView.reloadRows(at: updateInfo.updatedIndexPaths.array, with: animationForReloadedIndexPaths(updateInfo.updatedIndexPaths.array))
         tableView.endUpdates()
     }
     
-    func reloadCellsAtIndexPaths(_ indexPaths: [IndexPath]) {
-        tableView.reloadRows(at: indexPaths, with: .automatic)
-    }
-    
-    func insertCellsAtIndexPaths(_ indexPaths: [IndexPath]) {
-        tableView.insertRows(at: indexPaths, with: .automatic)
-    }
-    
-    func deleteCellsAtIndexPaths(_ indexPaths: [IndexPath]) {
-        tableView.deleteRows(at: indexPaths, with: .automatic)
-    }
-    
-    func insertSections(sectionsSet: IndexSet) {
-        tableView.insertSections(sectionsSet, with: .automatic)
-    }
-    
-    func deleteSections(sectionsSet: IndexSet) {
-        tableView.deleteSections(sectionsSet, with: .automatic)
-    }
-    
+    func animationForInsertedSections(_ sectionsSet:IndexSet) -> UITableViewRowAnimation { return .automatic }
+    func animationForDeletedSections(_ sectionsSet:IndexSet) -> UITableViewRowAnimation { return .automatic }
+    func animationForInsertedIndexPaths(_ indexPaths:[IndexPath]) -> UITableViewRowAnimation { return .automatic }
+    func animationForDeletedIndexPaths(_ indexPaths:[IndexPath]) -> UITableViewRowAnimation { return .automatic }
+    func animationForReloadedIndexPaths(_ indexPaths:[IndexPath]) -> UITableViewRowAnimation { return .automatic }
+
 }
 
 extension VIPERCollectionViewController: VIPERFetchResultControllerViewInterface {
     
-    func beginViewUpdates() {}
-    
-    func endViewUpdates() {}
-    
-    func reloadCellsAtIndexPaths(_ indexPaths: [IndexPath]) {
-        collectionView?.reloadItems(at: indexPaths)
-    }
-    
-    func insertCellsAtIndexPaths(_ indexPaths: [IndexPath]) {
-        collectionView?.insertItems(at: indexPaths)
-    }
-    
-    func deleteCellsAtIndexPaths(_ indexPaths: [IndexPath]) {
-        collectionView?.deleteItems(at: indexPaths)
-    }
-    
-}
-
-extension VIPERPresenter: VIPERFetchResultControllerInteractorEventsDelegate {
-    
-    var fetchResultControllerViewInterface: VIPERFetchResultControllerViewInterface? {
-        return _viewInterface as? VIPERFetchResultControllerViewInterface
-    }
-    
-    func controllerDidChangeObjectAtIndexPath(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch (type) {
-            case .insert:
-                guard let newIndexPath = newIndexPath else { break }
-                fetchResultControllerViewInterface?.insertCellsAtIndexPaths([newIndexPath])
-            case .update:
-                guard let indexPath = indexPath else { break }
-                fetchResultControllerViewInterface?.reloadCellsAtIndexPaths([indexPath])
-            case .delete:
-                guard let indexPath = indexPath else { break }
-                fetchResultControllerViewInterface?.deleteCellsAtIndexPaths([indexPath])
-            case .move:
-                guard let indexPath = indexPath, let newIndexPath = newIndexPath else { break }
-                fetchResultControllerViewInterface?.deleteCellsAtIndexPaths([indexPath])
-                fetchResultControllerViewInterface?.insertCellsAtIndexPaths([newIndexPath])
-        }
-    }
-    
-    func controllerDidChangeSectionInfoAtSectionIndex(_ sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
-        switch (type) {
-            case .insert:
-                fetchResultControllerViewInterface?.insertSections(sectionsSet: IndexSet([sectionIndex]))
-            case .delete:
-                fetchResultControllerViewInterface?.deleteSections(sectionsSet: IndexSet([sectionIndex]))
-            case .move:
-                break
-            case .update:
-                break
-        }
-    }
-    
-    func controllerWillChangeContent() {
-        fetchResultControllerViewInterface?.beginViewUpdates()
-    }
-    
-    func controllerDidChangeContent() {
-        fetchResultControllerViewInterface?.endViewUpdates()
+    func updateViewWithInfo(_ updateInfo:DataUpdateInfo) {
+        collectionView?.performBatchUpdates({
+            self.collectionView?.insertSections(updateInfo.insertedSections)
+            self.collectionView?.deleteSections(updateInfo.insertedSections)
+            self.collectionView?.insertItems(at: updateInfo.insertedIndexPaths.array)
+            self.collectionView?.deleteItems(at: updateInfo.deletedIndexPaths.array)
+            self.collectionView?.reloadItems(at: updateInfo.updatedIndexPaths.array)
+        })
     }
     
 }

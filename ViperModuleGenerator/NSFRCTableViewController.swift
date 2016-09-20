@@ -23,6 +23,12 @@ class NSFRCTableViewController: VIPERTableViewController, NSFRCViewInterface {
         eventHandler.didSelectAddButton()
     }
     
+    // MARK: - Overrides
+    
+    override func animationForInsertedIndexPaths(_ indexPaths: [IndexPath]) -> UITableViewRowAnimation {
+        return .right
+    }
+    
     // MARK: - UITableViewDataSource
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
