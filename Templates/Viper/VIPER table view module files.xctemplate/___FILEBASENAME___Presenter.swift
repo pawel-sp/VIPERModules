@@ -6,6 +6,8 @@
 //___COPYRIGHT___
 //
 
+import VIPERModules
+
 class ___FILEBASENAMEASIDENTIFIER___Presenter: VIPERPresenter, ___FILEBASENAMEASIDENTIFIER___PresenterInterface, ___FILEBASENAMEASIDENTIFIER___InteractorDelegate {
     
     // MARK: - ___FILEBASENAMEASIDENTIFIER___PresenterInterface

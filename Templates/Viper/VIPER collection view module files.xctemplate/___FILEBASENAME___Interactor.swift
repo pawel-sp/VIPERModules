@@ -6,6 +6,8 @@
 //___COPYRIGHT___
 //
 
+import VIPERModules
+
 class ___FILEBASENAMEASIDENTIFIER___Interactor: VIPERInteractor, ___FILEBASENAMEASIDENTIFIER___InteractorEventsInterface, ___FILEBASENAMEASIDENTIFIER___InteractorDataSourceInterface {
 
     // MARK: - ___FILEBASENAMEASIDENTIFIER___InteractorEventsInterface

@@ -6,6 +6,8 @@
 //___COPYRIGHT___
 //
 
+import VIPERModules
+
 extension ___FILEBASENAMEASIDENTIFIER___Interactor {
     
     typealias CustomDelegateType    = ___FILEBASENAMEASIDENTIFIER___Presenter

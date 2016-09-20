@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VIPERModules
 
 class ___FILEBASENAMEASIDENTIFIER___Wireframe: VIPERWireframe, ___FILEBASENAMEASIDENTIFIER___WireframeInterface {
     

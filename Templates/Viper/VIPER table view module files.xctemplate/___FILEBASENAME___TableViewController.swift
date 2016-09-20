@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VIPERModules
 
 class ___FILEBASENAMEASIDENTIFIER___TableViewController: VIPERTableViewController, ___FILEBASENAMEASIDENTIFIER___ViewInterface {
     

@@ -6,6 +6,8 @@
 //___COPYRIGHT___
 //
 
+import VIPERModules
+
 protocol ___FILEBASENAMEASIDENTIFIER___WireframeInterface: VIPERCustomWireframeInterface {
     
 }

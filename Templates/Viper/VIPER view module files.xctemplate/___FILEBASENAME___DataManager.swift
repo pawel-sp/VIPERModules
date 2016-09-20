@@ -6,6 +6,8 @@
 //___COPYRIGHT___
 //
 
+import VIPERModules
+
 class ___FILEBASENAMEASIDENTIFIER___DataManager: VIPERDataManager {
     
 }
