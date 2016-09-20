@@ -17,8 +17,8 @@ class NSFRCPresenter: VIPERFetchResultControllerPresenter, NSFRCPresenterInterfa
         return interactorDataSource.numberOfPersons()
     }
     
-    func titleForRowAtIndexPath(indexPath:IndexPath) -> String {
-        if let person = interactorDataSource.personInfoAtIndex(index: indexPath.row) {
+    func titleForRowAtIndexPath(_ indexPath:IndexPath) -> String {
+        if let person = interactorDataSource.personInfoAtIndex(indexPath.row) {
             return "\(person.firstName) \(person.lastName)"
         } else {
             return ""

@@ -13,7 +13,7 @@ class ExampleInteractor: VIPERInteractor, ExampleInteractorEventsInterface, Exam
 
     // MARK: - Properties
     
-    private var fetchedData:[DataItemResource] = []
+    fileprivate var fetchedData:[DataItemResource] = []
     
     // MARK: - ExampleInteractorEventsInterface
     
@@ -30,7 +30,7 @@ class ExampleInteractor: VIPERInteractor, ExampleInteractorEventsInterface, Exam
         return fetchedData.count
     }
     
-    func titleForDataAtIndex(index:Int) -> String {
+    func titleForDataAtIndex(_ index:Int) -> String {
         return fetchedData[index].name
     }
     

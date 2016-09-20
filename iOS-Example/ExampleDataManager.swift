@@ -21,7 +21,7 @@ class DataItemResource {
 
 class ExampleDataManager: VIPERDataManager {
 
-    private var dataLimit:Int
+    fileprivate var dataLimit:Int
     
     // MARK: - Init
     
@@ -36,7 +36,7 @@ class ExampleDataManager: VIPERDataManager {
     
     // MARK: - Utilities
     
-    func dataRequestWithCompletionBlock(block:@escaping (([DataItemResource]) -> Void)) {
+    func dataRequestWithCompletionBlock(_ block:@escaping (([DataItemResource]) -> Void)) {
         let deadlineTime = DispatchTime.now() + .seconds(2)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             let dataCount = self.dataLimit

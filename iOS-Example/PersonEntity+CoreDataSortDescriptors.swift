@@ -12,7 +12,7 @@ import CoreData
 extension PersonEntity {
 
     class func fetchRequestSortedByLastName() -> NSFetchRequest<PersonEntity> {
-        let fetchRequest:NSFetchRequest<PersonEntity> = self.fetchRequest()
+        let fetchRequest:NSFetchRequest<PersonEntity> = self.fetchRequest() as! NSFetchRequest<PersonEntity>
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "lastName", ascending: true)]
         return fetchRequest
     }

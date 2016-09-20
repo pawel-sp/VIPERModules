@@ -13,7 +13,7 @@ class NSFRCInteractor: VIPERInteractor, NSFRCInteractorEventsInterface, NSFRCInt
 
     // MARK: - Properties
     
-    private var fetchResultController:NSFetchedResultsController<PersonEntity>?
+    fileprivate var fetchResultController:NSFetchedResultsController<PersonEntity>?
     
     // MARK: - NSFRCInteractorEventsInterface
     
@@ -40,9 +40,9 @@ class NSFRCInteractor: VIPERInteractor, NSFRCInteractorEventsInterface, NSFRCInt
         return fetchResultController?.fetchedObjects?.count ?? 0
     }
     
-    func personInfoAtIndex(index:Int) -> PersonInfo? {
+    func personInfoAtIndex(_ index:Int) -> PersonInfo? {
         if let personEntity = fetchResultController?.fetchedObjects?[index] {
-            return PersonInfo.personInfoFromPersonEntity(personEntity: personEntity)
+            return PersonInfo.personInfoFromPersonEntity(personEntity)
         } else {
             return nil
         }

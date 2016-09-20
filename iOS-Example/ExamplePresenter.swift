@@ -14,15 +14,15 @@ class ExamplePresenter: VIPERPresenter, ExamplePresenterInterface, ExampleIntera
     // MARK: - ExamplePresenterInterface
     
     func updateViewTitle() {
-        viewInterface.displayNavigationBarTitle(title: "Example Module")
+        viewInterface.displayNavigationBarTitle("Example Module")
     }
     
     func numberOfRows() -> Int {
         return interactorDataSource.dataCount()
     }
     
-    func titleForRowAtIndexPath(indexPath:IndexPath) -> String {
-        return interactorDataSource.titleForDataAtIndex(index: indexPath.row)
+    func titleForRowAtIndexPath(_ indexPath:IndexPath) -> String {
+        return interactorDataSource.titleForDataAtIndex(indexPath.row)
     }
     
     // MARK: - ExampleInteractorDelegate

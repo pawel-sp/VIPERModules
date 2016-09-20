@@ -15,7 +15,7 @@ protocol ExampleWireframeInterface: VIPERCustomWireframeInterface {
 
 protocol ExampleViewInterface: VIPERCustomViewInterface {
     
-    func displayNavigationBarTitle(title:String)
+    func displayNavigationBarTitle(_ title:String)
     func reloadTableView()
     
 }
@@ -24,7 +24,7 @@ protocol ExamplePresenterInterface: VIPERCustomPresenterInterface {
     
     func updateViewTitle()
     func numberOfRows() -> Int
-    func titleForRowAtIndexPath(indexPath:IndexPath) -> String
+    func titleForRowAtIndexPath(_ indexPath:IndexPath) -> String
     
 }
 
@@ -43,7 +43,7 @@ protocol ExampleInteractorEventsInterface: VIPERCustomInteractorEventsInterface 
 protocol ExampleInteractorDataSourceInterface: VIPERCustomInteractorDataSourceInterface {
     
     func dataCount() -> Int
-    func titleForDataAtIndex(index:Int) -> String
+    func titleForDataAtIndex(_ index:Int) -> String
     
 }
 

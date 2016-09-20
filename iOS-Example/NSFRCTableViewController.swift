@@ -38,7 +38,7 @@ class NSFRCTableViewController: VIPERTableViewController, NSFRCViewInterface {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
-        cell.textLabel?.text = presenter.titleForRowAtIndexPath(indexPath: indexPath)
+        cell.textLabel?.text = presenter.titleForRowAtIndexPath(indexPath)
         return cell
     }
     

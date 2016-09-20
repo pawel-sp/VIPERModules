@@ -22,7 +22,7 @@ class PersonInfo {
 
 extension PersonInfo {
     
-    class func personInfoFromPersonEntity(personEntity:PersonEntity) -> PersonInfo {
+    class func personInfoFromPersonEntity(_ personEntity:PersonEntity) -> PersonInfo {
         return PersonInfo(firstName: personEntity.firstName ?? "", lastName: personEntity.lastName ?? "")
     }
     

@@ -10,6 +10,6 @@ import Foundation
 import CoreData
 
 
-public class PersonEntity: NSManagedObject {
+open class PersonEntity: NSManagedObject {
 
 }

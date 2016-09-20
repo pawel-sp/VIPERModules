@@ -30,13 +30,13 @@ class ExampleViewController: VIPERViewController, UITableViewDataSource, Example
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
-        cell.textLabel?.text = presenter.titleForRowAtIndexPath(indexPath: indexPath)
+        cell.textLabel?.text = presenter.titleForRowAtIndexPath(indexPath)
         return cell
     }
     
     // MARK: - ExampleViewInterface
 
-    func displayNavigationBarTitle(title:String) {
+    func displayNavigationBarTitle(_ title:String) {
         self.title = title
     }
     

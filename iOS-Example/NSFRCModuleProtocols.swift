@@ -20,7 +20,7 @@ protocol NSFRCViewInterface: VIPERCustomViewInterface, VIPERFetchResultControlle
 protocol NSFRCPresenterInterface: VIPERCustomPresenterInterface {
     
     func numberOfRows() -> Int
-    func titleForRowAtIndexPath(indexPath:IndexPath) -> String
+    func titleForRowAtIndexPath(_ indexPath:IndexPath) -> String
     
 }
 
@@ -41,7 +41,7 @@ protocol NSFRCInteractorEventsInterface: VIPERCustomInteractorEventsInterface, V
 protocol NSFRCInteractorDataSourceInterface: VIPERCustomInteractorDataSourceInterface {
     
     func numberOfPersons() -> Int
-    func personInfoAtIndex(index:Int) -> PersonInfo?
+    func personInfoAtIndex(_ index:Int) -> PersonInfo?
     
 }
 
