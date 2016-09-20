@@ -314,6 +314,7 @@
 				A4B5EED41D9164660011978D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
