@@ -17,12 +17,7 @@ class NSFRCInteractor: VIPERInteractor, NSFRCInteractorEventsInterface, NSFRCInt
     // MARK: - NSFRCInteractorEventsInterface
     
     func fetchPersons() {
-        fetchResultController = NSFetchedResultsController(
-            fetchRequest: PersonEntity.fetchRequestSortedByLastName(),
-            managedObjectContext: self.dataManager.coreDataStack.persistentContainer.viewContext,
-            sectionNameKeyPath: nil,
-            cacheName: nil
-        )
+        fetchResultController = dataManager.newPersonFetchResultController()
         fetchResultController?.delegate = self
         do {
             try fetchResultController?.performFetch()
@@ -30,13 +25,12 @@ class NSFRCInteractor: VIPERInteractor, NSFRCInteractorEventsInterface, NSFRCInt
     }
     
     func addRandomPerson() {
-        let context      = self.dataManager.coreDataStack.persistentContainer.viewContext
-        let personEntity = PersonEntity(context: context)
-        personEntity.firstName = ["Pete", "John", "Vincent"].random
-        personEntity.lastName  = ["Clooney", "Clinton", "Bravo"].random
-        do {
-            try context.save()
-        } catch _ {}
+        self.dataManager.coreDataStack.persistentContainer.performBackgroundTask({ context in
+            let personEntity = PersonEntity(context: context)
+            personEntity.firstName = ["Pete", "John", "Vincent"].random
+            personEntity.lastName  = ["Clooney", "Clinton", "Bravo"].random
+            try! context.save()
+        })
     }
     
     // MARK: - NSFRCInteractorDataSourceInterface

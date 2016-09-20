@@ -18,6 +18,8 @@ protocol VIPERFetchResultControllerViewInterface {
     func reloadCellsAtIndexPaths(_ indexPaths: [IndexPath])
     func insertCellsAtIndexPaths(_ indexPaths: [IndexPath])
     func deleteCellsAtIndexPaths(_ indexPaths: [IndexPath])
+    func insertSections(sectionsSet: IndexSet)
+    func deleteSections(sectionsSet: IndexSet)
     
 }
 
@@ -32,8 +34,8 @@ protocol VIPERFetchResultControllerInteractorEventsInterface: NSFetchedResultsCo
 
 protocol VIPERFetchResultControllerInteractorEventsDelegate {
     
-    func controllerDidChangeObject(anObject: Any, atIndexPath indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
-    func controllerDidChangeSectionInfo(sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
+    func controllerDidChangeObjectAtIndexPath(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
+    func controllerDidChangeSectionInfoAtSectionIndex(_ sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
     func controllerWillChangeContent()
     func controllerDidChangeContent()
     
@@ -61,6 +63,14 @@ extension VIPERTableViewController: VIPERFetchResultControllerViewInterface {
     
     func deleteCellsAtIndexPaths(_ indexPaths: [IndexPath]) {
         tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
+    
+    func insertSections(sectionsSet: IndexSet) {
+        tableView.insertSections(sectionsSet, with: .automatic)
+    }
+    
+    func deleteSections(sectionsSet: IndexSet) {
+        tableView.deleteSections(sectionsSet, with: .automatic)
     }
     
 }
@@ -91,7 +101,7 @@ extension VIPERPresenter: VIPERFetchResultControllerInteractorEventsDelegate {
         return _viewInterface as? VIPERFetchResultControllerViewInterface
     }
     
-    func controllerDidChangeObject(anObject: Any, atIndexPath indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func controllerDidChangeObjectAtIndexPath(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch (type) {
             case .insert:
                 guard let newIndexPath = newIndexPath else { break }
@@ -109,8 +119,17 @@ extension VIPERPresenter: VIPERFetchResultControllerInteractorEventsDelegate {
         }
     }
     
-    func controllerDidChangeSectionInfo(sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
-      
+    func controllerDidChangeSectionInfoAtSectionIndex(_ sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        switch (type) {
+            case .insert:
+                fetchResultControllerViewInterface?.insertSections(sectionsSet: IndexSet([sectionIndex]))
+            case .delete:
+                fetchResultControllerViewInterface?.deleteSections(sectionsSet: IndexSet([sectionIndex]))
+            case .move:
+                break
+            case .update:
+                break
+        }
     }
     
     func controllerWillChangeContent() {
@@ -130,11 +149,11 @@ extension VIPERInteractor: VIPERFetchResultControllerInteractorEventsInterface {
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        fetchResultControllerDelegate?.controllerDidChangeObject(anObject: anObject, atIndexPath: indexPath, forChangeType: type, newIndexPath: newIndexPath)
+        fetchResultControllerDelegate?.controllerDidChangeObjectAtIndexPath(indexPath, forChangeType: type, newIndexPath: newIndexPath)
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        fetchResultControllerDelegate?.controllerDidChangeSectionInfo(sectionInfo: sectionInfo, atSectionIndex: sectionIndex, forChangeType: type)
+        fetchResultControllerDelegate?.controllerDidChangeSectionInfoAtSectionIndex(sectionIndex, forChangeType: type)
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

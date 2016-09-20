@@ -6,6 +6,8 @@
 //  Copyright © 2016 Paweł Sporysz. All rights reserved.
 //
 
+import CoreData
+
 class NSFRCDataManager: VIPERDataManager {
     
     // MARK: - Properties
@@ -17,6 +19,17 @@ class NSFRCDataManager: VIPERDataManager {
     required init() {
         coreDataStack = CoreDataStack.sharedStack
         super.init()
+    }
+    
+    // MARK: - Utilities
+    
+    func newPersonFetchResultController() -> NSFetchedResultsController<PersonEntity> {
+        return NSFetchedResultsController(
+            fetchRequest: PersonEntity.fetchRequestSortedByLastName(),
+            managedObjectContext: self.coreDataStack.persistentContainer.viewContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
     }
     
 }

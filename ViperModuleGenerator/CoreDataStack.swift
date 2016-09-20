@@ -12,6 +12,10 @@ class CoreDataStack {
     
     static let sharedStack = CoreDataStack()
     
+    init() {
+        persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
+    }
+    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Database")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
