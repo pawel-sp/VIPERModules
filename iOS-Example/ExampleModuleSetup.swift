@@ -8,6 +8,8 @@
 
 // MARK: - Extensions
 
+import VIPERModules
+
 extension ExampleInteractor {
     
     typealias CustomDelegateType    = ExamplePresenter

@@ -50,7 +50,7 @@ VIPERModules supports NSFetchResultController. After creating new module files u
 There is no additional code to put into modules, all parts responsible for refreshing view are inside extensions. The only thing you need to take care of is add/remove/change object using NSFetchResultController object.
 
 ## Example 
-You can run iOS-Example project to check all features. There are to separate modules:
+You can run iOS-Example project to check all features. There are two separate modules:
 
 - First one is the easiest possible module only to show dependencies between module parts
 - Second one presents how to use NSFetchResultController with VIPERModules
