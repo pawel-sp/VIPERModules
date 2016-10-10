@@ -19,7 +19,6 @@ extension ___FILEBASENAMEASIDENTIFIER___EventHandler {
     
     typealias CustomPresenterType        = ___FILEBASENAMEASIDENTIFIER___Presenter
     typealias CustomInteractorEventsType = ___FILEBASENAMEASIDENTIFIER___Interactor
-    typealias CustomWireframeType        = ___FILEBASENAMEASIDENTIFIER___Wireframe
     
 }
 
@@ -27,6 +26,7 @@ extension ___FILEBASENAMEASIDENTIFIER___Presenter {
     
     typealias CustomViewControllerType       = ___FILEBASENAMEASIDENTIFIER___ViewController
     typealias CustomInteractorDataSourceType = ___FILEBASENAMEASIDENTIFIER___Interactor
+    typealias CustomWireframeType            = ___FILEBASENAMEASIDENTIFIER___Wireframe
     
 }
 

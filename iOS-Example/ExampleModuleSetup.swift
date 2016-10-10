@@ -21,7 +21,6 @@ extension ExampleEventHandler {
     
     typealias CustomPresenterType        = ExamplePresenter
     typealias CustomInteractorEventsType = ExampleInteractor
-    typealias CustomWireframeType        = ExampleWireframe
     
 }
 
@@ -29,6 +28,7 @@ extension ExamplePresenter {
     
     typealias CustomViewControllerType       = ExampleViewController
     typealias CustomInteractorDataSourceType = ExampleInteractor
+    typealias CustomWireframeType            = ExampleWireframe
     
 }
 

@@ -17,7 +17,6 @@ extension NSFRCEventHandler {
     
     typealias CustomPresenterType        = NSFRCPresenter
     typealias CustomInteractorEventsType = NSFRCInteractor
-    typealias CustomWireframeType        = NSFRCWireframe
     
 }
 
@@ -25,6 +24,7 @@ extension NSFRCPresenter {
     
     typealias CustomViewControllerType       = NSFRCTableViewController
     typealias CustomInteractorDataSourceType = NSFRCInteractor
+    typealias CustomWireframeType            = NSFRCWireframe
    
 }
 

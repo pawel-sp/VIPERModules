@@ -46,9 +46,11 @@ public protocol VIPERPresenterInterface: NSObjectProtocol {
 
     associatedtype ViewInterfaceType
     associatedtype InteractorDataSourceInterfaceType
+    associatedtype WireframeType
     
     var _viewInterface: ViewInterfaceType! { get set }
     var _interactorDataSource: InteractorDataSourceInterfaceType! { get set }
+    var _wireframe: WireframeType! { get set }
     
     init()
 
@@ -58,11 +60,9 @@ public protocol VIPEREventHandlerInterface: NSObjectProtocol {
 
     associatedtype PresenterInterfaceType
     associatedtype InteractorEventsInterfaceType
-    associatedtype WireframeType
     
     var _presenter: PresenterInterfaceType! { get set }
     var _interactorEvents: InteractorEventsInterfaceType! { get set }
-    var _wireframe: WireframeType! { get set }
  
     init()
     
@@ -129,9 +129,11 @@ public protocol VIPERCustomPresenterInterface: VIPERPresenterInterface {
     
     associatedtype CustomViewControllerType: VIPERViewInterface
     associatedtype CustomInteractorDataSourceType: VIPERInteractor
+    associatedtype CustomWireframeType: VIPERWireframe
     
     var viewInterface: CustomViewControllerType { get }
     var interactorDataSource: CustomInteractorDataSourceType { get }
+    var wireframe:CustomWireframeType { get }
     
 }
 
@@ -139,11 +141,9 @@ public protocol VIPERCustomEventHandlerInterface: VIPEREventHandlerInterface {
     
     associatedtype CustomPresenterType: VIPERPresenter
     associatedtype CustomInteractorEventsType: VIPERInteractor
-    associatedtype CustomWireframeType: VIPERWireframe
     
     var presenter: CustomPresenterType { get }
     var interactorEvents: CustomInteractorEventsType { get }
-    var wireframe:CustomWireframeType { get }
     
 }
 
@@ -214,6 +214,7 @@ public extension VIPERCustomPresenterInterface {
     
     var viewInterface: CustomViewControllerType { return _viewInterface as! CustomViewControllerType }
     var interactorDataSource: CustomInteractorDataSourceType { return _interactorDataSource as! CustomInteractorDataSourceType }
+    var wireframe:CustomWireframeType { return _wireframe as! CustomWireframeType }
     
 }
 
@@ -221,7 +222,6 @@ public extension VIPERCustomEventHandlerInterface {
     
     var presenter: CustomPresenterType { return _presenter as! CustomPresenterType }
     var interactorEvents: CustomInteractorEventsType { return _interactorEvents as! CustomInteractorEventsType }
-    var wireframe:CustomWireframeType { return _wireframe as! CustomWireframeType }
     
 }
 
