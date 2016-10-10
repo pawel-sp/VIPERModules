@@ -59,10 +59,10 @@ open class VIPERWireframe: VIPERItem, VIPERWireframeInterface {
         
         presenter._viewInterface        = viewController
         presenter._interactorDataSource = interactor
-        presenter._wireframe            = self
         
         eventHandler._presenter        = presenter
         eventHandler._interactorEvents = interactor
+        eventHandler._wireframe        = self
         
         interactor._delegate    = presenter
         interactor._dataManager = dataManager
@@ -127,16 +127,14 @@ open class VIPERCollectionViewController: UICollectionViewController, VIPERViewI
 }
 
 open class VIPERPresenter: VIPERItem, VIPERPresenterInterface, VIPERInteractorDelegate {
-
+ 
     // MARK: - VIPERPresenterInterface
     
     public typealias ViewInterfaceType                 = AnyObject
     public typealias InteractorDataSourceInterfaceType = AnyObject
-    public typealias WireframeType                     = AnyObject
     
     public weak var _viewInterface: ViewInterfaceType!
     public weak var _interactorDataSource: InteractorDataSourceInterfaceType!
-    public var _wireframe: WireframeType!
     
     required override public init() {
         super.init()
@@ -152,9 +150,11 @@ open class VIPEREventHandler: VIPERItem, VIPEREventHandlerInterface {
     
     public typealias PresenterInterfaceType        = AnyObject
     public typealias InteractorEventsInterfaceType = AnyObject
+    public typealias WireframeType                 = AnyObject
     
     public weak var _presenter: PresenterInterfaceType!
     public var _interactorEvents: InteractorEventsInterfaceType!
+    public var _wireframe: WireframeType!
     
     required override public init() {
         super.init()

@@ -35,6 +35,7 @@
 		A4B5EE8E1D90063A0011978D /* PersonEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EE8C1D90063A0011978D /* PersonEntity+CoreDataProperties.swift */; };
 		A4B5EE901D9010180011978D /* PersonEntity+CoreDataSortDescriptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EE8F1D9010180011978D /* PersonEntity+CoreDataSortDescriptors.swift */; };
 		A4B5EE941D9017080011978D /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EE931D9017080011978D /* Array+Random.swift */; };
+		A4EB68A91DABC0D30036B0A3 /* VIPERModules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DC90A11D916695002DEE6A /* VIPERModules.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4EB68A91DABC0D30036B0A3 /* VIPERModules.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
