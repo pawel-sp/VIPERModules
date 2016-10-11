@@ -147,7 +147,15 @@ public protocol VIPERCustomEventHandlerInterface: VIPEREventHandlerInterface {
     
 }
 
-public protocol VIPERCustomInteractorEventsInterface: VIPERInteractorEventsInterface {
+public protocol VIPERCustomInteractorInterface: VIPERInteractorInterface {
+    
+    associatedtype CustomDataManagerType: VIPERDataManager
+    
+    var dataManager: CustomDataManagerType { get }
+
+}
+
+public protocol VIPERCustomInteractorEventsInterface: VIPERCustomInteractorInterface, VIPERInteractorEventsInterface {
     
     associatedtype CustomDelegateType: VIPERPresenter
     
@@ -155,12 +163,8 @@ public protocol VIPERCustomInteractorEventsInterface: VIPERInteractorEventsInter
     
 }
 
-public protocol VIPERCustomInteractorDataSourceInterface: VIPERInteractorDataSourceInterface {
-    
-    associatedtype CustomDataManagerType: VIPERDataManager
-    
-    var dataManager: CustomDataManagerType { get }
-    
+public protocol VIPERCustomInteractorDataSourceInterface: VIPERCustomInteractorInterface, VIPERInteractorDataSourceInterface {
+
 }
 
 public protocol VIPERCustomInteractorDelegate: VIPERInteractorDelegate {
