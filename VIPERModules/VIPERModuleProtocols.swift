@@ -12,6 +12,8 @@ import UIKit
 
 public protocol VIPERWireframeInterface: NSObjectProtocol {
     
+    var viewController:UIViewController? { get }
+    
     func module<
         VIPERViewControllerType:VIPERViewInterface,
         VIPERPresenterType:VIPERPresenter,

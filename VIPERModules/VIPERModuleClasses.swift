@@ -21,6 +21,8 @@ open class VIPERWireframe: VIPERItem, VIPERWireframeInterface {
     
     // MARK: - VIPERWireframeInterface
     
+    public weak var viewController:UIViewController?
+    
     public func module<
         VIPERViewControllerType:VIPERViewInterface,
         VIPERPresenterType:VIPERPresenter,
@@ -66,6 +68,8 @@ open class VIPERWireframe: VIPERItem, VIPERWireframeInterface {
         
         interactor._delegate    = presenter
         interactor._dataManager = dataManager
+        
+        self.viewController = viewController as? UIViewController
         
         return viewController
     }
