@@ -9,9 +9,11 @@
 import Foundation
 import VIPERModules
 
-class ExampleEventHandler: VIPEREventHandler, ExampleEventHandlerInterface {
-    
-    // MARK: - ExampleEventHandlerInterface
+class ExampleEventHandler: VIPEREventHandler {
+
+}
+
+extension ExampleEventHandler: ExampleEventHandlerInterface {
     
     func viewDidLoad() {
         presenter.updateViewTitle()

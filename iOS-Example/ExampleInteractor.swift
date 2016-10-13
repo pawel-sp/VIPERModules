@@ -9,13 +9,15 @@
 import Foundation
 import VIPERModules
 
-class ExampleInteractor: VIPERInteractor, ExampleInteractorEventsInterface, ExampleInteractorDataSourceInterface {
+class ExampleInteractor: VIPERInteractor {
 
     // MARK: - Properties
     
     fileprivate var fetchedData:[DataItemResource] = []
-    
-    // MARK: - ExampleInteractorEventsInterface
+
+}
+
+extension ExampleInteractor: ExampleInteractorEventsInterface {
     
     func loadData() {
         dataManager.dataRequestWithCompletionBlock { [weak self] data in
@@ -24,7 +26,9 @@ class ExampleInteractor: VIPERInteractor, ExampleInteractorEventsInterface, Exam
         }
     }
     
-    // MARK: - ExampleInteractorDataSourceInterface
+}
+
+extension ExampleInteractor: ExampleInteractorDataSourceInterface {
     
     func dataCount() -> Int {
         return fetchedData.count

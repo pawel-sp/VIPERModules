@@ -9,10 +9,12 @@
 import Foundation
 import VIPERModules
 
-class NSFRCPresenter: VIPERFetchResultControllerPresenter, NSFRCPresenterInterface, NSFRCInteractorDelegate {
+class NSFRCPresenter: VIPERFetchResultControllerPresenter {
     
-    // MARK: - NSFRCPresenterInterface
+}
 
+extension NSFRCPresenter: NSFRCPresenterInterface {
+    
     func numberOfRows() -> Int {
         return interactorDataSource.numberOfPersons()
     }
@@ -25,6 +27,9 @@ class NSFRCPresenter: VIPERFetchResultControllerPresenter, NSFRCPresenterInterfa
         }
     }
     
-    // MARK: - NSFRCInteractorDelegate
+}
+
+extension NSFRCPresenter: NSFRCInteractorDelegate {
+    
     
 }

@@ -9,9 +9,11 @@
 import Foundation
 import VIPERModules
 
-class ExamplePresenter: VIPERPresenter, ExamplePresenterInterface, ExampleInteractorDelegate {
+class ExamplePresenter: VIPERPresenter {
 
-    // MARK: - ExamplePresenterInterface
+}
+
+extension ExamplePresenter: ExamplePresenterInterface {
     
     func updateViewTitle() {
         viewInterface.displayNavigationBarTitle("Example Module")
@@ -25,7 +27,9 @@ class ExamplePresenter: VIPERPresenter, ExamplePresenterInterface, ExampleIntera
         return interactorDataSource.titleForDataAtIndex(indexPath.row)
     }
     
-    // MARK: - ExampleInteractorDelegate
+}
+
+extension ExamplePresenter: ExampleInteractorDelegate {
     
     func loadedData() {
         viewInterface.reloadTableView()

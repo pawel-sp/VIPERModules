@@ -9,13 +9,8 @@
 import UIKit
 import VIPERModules
 
-class ExampleWireframe: VIPERWireframe, ExampleWireframeInterface {
+class ExampleWireframe: VIPERWireframe {
 
-    // MARK: - ExampleWireframeInterface
-    
-    var storyboard:UIStoryboard { return UIStoryboard.init(name: "Main", bundle: nil) }
-    var viewControllerID:String { return "ExampleViewController" }
-    
     // MARK: - Utilities
     
     func customModule(dataLimit:Int) ->  ExampleViewController {
@@ -26,5 +21,12 @@ class ExampleWireframe: VIPERWireframe, ExampleWireframeInterface {
             dataManagerInitBlock: { return $0.init(dataLimit:dataLimit) }
         )
     }
+    
+}
+
+extension ExampleWireframe: ExampleWireframeInterface {
+    
+    var storyboard:UIStoryboard { return UIStoryboard.init(name: "Main", bundle: nil) }
+    var viewControllerID:String { return "ExampleViewController" }
     
 }

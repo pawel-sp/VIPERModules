@@ -9,9 +9,11 @@
 import UIKit
 import VIPERModules
 
-class NSFRCWireframe: VIPERWireframe, NSFRCWireframeInterface {
+class NSFRCWireframe: VIPERWireframe {
     
-    // MARK: - NSFRCWireframeInterface
+}
+
+extension NSFRCWireframe: NSFRCWireframeInterface {
     
     var storyboard:UIStoryboard { return UIStoryboard.init(name: "Main", bundle: nil) }
     var viewControllerID:String { return "NSFRCTableViewController" }

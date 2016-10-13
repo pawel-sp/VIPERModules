@@ -9,7 +9,7 @@
 import UIKit
 import VIPERModules
 
-class NSFRCTableViewController: VIPERTableViewController, NSFRCViewInterface {
+class NSFRCTableViewController: VIPERTableViewController {
     
     // MARK: - Lifecycle
     
@@ -42,6 +42,9 @@ class NSFRCTableViewController: VIPERTableViewController, NSFRCViewInterface {
         return cell
     }
     
-    // MARK: - NSFRCViewInterface
+}
+
+extension NSFRCTableViewController: NSFRCViewInterface {
+    
     
 }
