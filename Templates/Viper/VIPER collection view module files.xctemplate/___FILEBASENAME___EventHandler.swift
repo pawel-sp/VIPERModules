@@ -10,6 +10,9 @@ import VIPERModules
 
 class ___FILEBASENAMEASIDENTIFIER___EventHandler: VIPEREventHandler, ___FILEBASENAMEASIDENTIFIER___EventHandlerInterface {
     
-    // MARK: - ___FILEBASENAMEASIDENTIFIER___EventHandlerInterface
+}
+
+extension ___FILEBASENAMEASIDENTIFIER___EventHandler: ___FILEBASENAMEASIDENTIFIER___EventHandlerInterface {
+    
     
 }

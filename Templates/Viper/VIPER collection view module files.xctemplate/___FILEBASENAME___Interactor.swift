@@ -9,9 +9,15 @@
 import VIPERModules
 
 class ___FILEBASENAMEASIDENTIFIER___Interactor: VIPERInteractor, ___FILEBASENAMEASIDENTIFIER___InteractorEventsInterface, ___FILEBASENAMEASIDENTIFIER___InteractorDataSourceInterface {
-
-    // MARK: - ___FILEBASENAMEASIDENTIFIER___InteractorEventsInterface
     
-    // MARK: - ___FILEBASENAMEASIDENTIFIER___InteractorDataSourceInterface
+}
+
+extension ___FILEBASENAMEASIDENTIFIER___Interactor: ___FILEBASENAMEASIDENTIFIER___InteractorEventsInterface {
+    
+    
+}
+
+extension ___FILEBASENAMEASIDENTIFIER___Interactor: ___FILEBASENAMEASIDENTIFIER___InteractorDataSourceInterface {
+    
     
 }

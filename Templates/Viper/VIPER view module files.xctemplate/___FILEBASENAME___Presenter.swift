@@ -9,10 +9,16 @@
 import VIPERModules
 
 class ___FILEBASENAMEASIDENTIFIER___Presenter: VIPERPresenter, ___FILEBASENAMEASIDENTIFIER___PresenterInterface, ___FILEBASENAMEASIDENTIFIER___InteractorDelegate {
-    
-    // MARK: - ___FILEBASENAMEASIDENTIFIER___PresenterInterface
 
     
-    // MARK: - ___FILEBASENAMEASIDENTIFIER___InteractorDelegate
+}
+
+extension ___FILEBASENAMEASIDENTIFIER___Presenter: ___FILEBASENAMEASIDENTIFIER___PresenterInterface {
+    
+    
+}
+
+extension ___FILEBASENAMEASIDENTIFIER___Presenter: ___FILEBASENAMEASIDENTIFIER___InteractorDelegate {
+    
     
 }
