@@ -9,7 +9,7 @@
 import UIKit
 import VIPERModules
 
-class ___FILEBASENAMEASIDENTIFIER___ViewController: VIPERViewController, ___FILEBASENAMEASIDENTIFIER___ViewInterface {
+class ___FILEBASENAMEASIDENTIFIER___ViewController: VIPERViewController {
     
 }
 

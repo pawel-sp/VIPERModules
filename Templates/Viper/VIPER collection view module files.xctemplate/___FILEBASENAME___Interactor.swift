@@ -8,7 +8,7 @@
 
 import VIPERModules
 
-class ___FILEBASENAMEASIDENTIFIER___Interactor: VIPERInteractor, ___FILEBASENAMEASIDENTIFIER___InteractorEventsInterface, ___FILEBASENAMEASIDENTIFIER___InteractorDataSourceInterface {
+class ___FILEBASENAMEASIDENTIFIER___Interactor: VIPERInteractor {
     
 }
 

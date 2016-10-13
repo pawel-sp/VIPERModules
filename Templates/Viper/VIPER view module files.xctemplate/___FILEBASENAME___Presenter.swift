@@ -8,7 +8,7 @@
 
 import VIPERModules
 
-class ___FILEBASENAMEASIDENTIFIER___Presenter: VIPERPresenter, ___FILEBASENAMEASIDENTIFIER___PresenterInterface, ___FILEBASENAMEASIDENTIFIER___InteractorDelegate {
+class ___FILEBASENAMEASIDENTIFIER___Presenter: VIPERPresenter {
 
     
 }

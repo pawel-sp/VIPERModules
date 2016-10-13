@@ -8,7 +8,7 @@
 
 import VIPERModules
 
-class ___FILEBASENAMEASIDENTIFIER___EventHandler: VIPEREventHandler, ___FILEBASENAMEASIDENTIFIER___EventHandlerInterface {
+class ___FILEBASENAMEASIDENTIFIER___EventHandler: VIPEREventHandler {
     
     
 }
