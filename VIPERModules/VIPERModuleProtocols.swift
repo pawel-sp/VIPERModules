@@ -114,6 +114,13 @@ public protocol VIPERCustomWireframeInterface: VIPERWireframeInterface {
         interactorInitBlock: ((CustomInteractorInterfaceType.Type) -> (CustomInteractorInterfaceType))?,
         dataManagerInitBlock: ((CustomDataManagerType.Type) -> (CustomDataManagerType))?)
         -> CustomViewInterfaceType
+    func customModule(
+        viewControllerID: String?,
+        presenterInitBlock: ((CustomPresenterInterfaceType.Type) -> (CustomPresenterInterfaceType))?,
+        eventHandlerInitBlock: ((CustomEventHandlerInterfaceType.Type) -> (CustomEventHandlerInterfaceType))?,
+        interactorInitBlock: ((CustomInteractorInterfaceType.Type) -> (CustomInteractorInterfaceType))?,
+        dataManagerInitBlock: ((CustomDataManagerType.Type) -> (CustomDataManagerType))?)
+        -> CustomViewInterfaceType
     
 }
 
@@ -183,9 +190,26 @@ public extension VIPERCustomWireframeInterface {
         interactorInitBlock: ((CustomInteractorInterfaceType.Type) -> (CustomInteractorInterfaceType))?,
         dataManagerInitBlock: ((CustomDataManagerType.Type) -> (CustomDataManagerType))?) -> CustomViewInterfaceType {
         
+        return customModule(
+            viewControllerID: self.viewControllerID,
+            presenterInitBlock: presenterInitBlock,
+            eventHandlerInitBlock: eventHandlerInitBlock,
+            interactorInitBlock: interactorInitBlock,
+            dataManagerInitBlock: dataManagerInitBlock
+        )
+        
+    }
+    
+    func customModule(
+        viewControllerID: String?,
+        presenterInitBlock: ((CustomPresenterInterfaceType.Type) -> (CustomPresenterInterfaceType))?,
+        eventHandlerInitBlock: ((CustomEventHandlerInterfaceType.Type) -> (CustomEventHandlerInterfaceType))?,
+        interactorInitBlock: ((CustomInteractorInterfaceType.Type) -> (CustomInteractorInterfaceType))?,
+        dataManagerInitBlock: ((CustomDataManagerType.Type) -> (CustomDataManagerType))?) -> CustomViewInterfaceType {
+        
         return module(
             storyboard: storyboard,
-            viewControllerID: viewControllerID,
+            viewControllerID: viewControllerID ?? self.viewControllerID,
             presenterType: CustomPresenterInterfaceType.self,
             eventHandlerType: CustomEventHandlerInterfaceType.self,
             interactorType: CustomInteractorInterfaceType.self,
@@ -194,7 +218,7 @@ public extension VIPERCustomWireframeInterface {
             eventHandlerInitBlock: eventHandlerInitBlock,
             interactorInitBlock: interactorInitBlock,
             dataManagerInitBlock: dataManagerInitBlock
-        ) 
+        )
         
     }
     
