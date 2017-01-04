@@ -9,11 +9,8 @@
 import UIKit
 import VIPERModules
 
-class ___FILEBASENAMEASIDENTIFIER___ViewController: VIPERViewController {
+class ___FILEBASENAMEASIDENTIFIER___ViewController: VIPERViewController, ___FILEBASENAMEASIDENTIFIER___ViewInterface {
     
-}
-
-extension ___FILEBASENAMEASIDENTIFIER___ViewController: ___FILEBASENAMEASIDENTIFIER___ViewInterface {
-    
+    // MARK: - ___FILEBASENAMEASIDENTIFIER___ViewInterface
     
 }

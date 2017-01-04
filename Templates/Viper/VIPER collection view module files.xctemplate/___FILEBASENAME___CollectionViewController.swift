@@ -9,11 +9,8 @@
 import UIKit
 import VIPERModules
 
-class ___FILEBASENAMEASIDENTIFIER___CollectionViewController: VIPERCollectionViewController {
+class ___FILEBASENAMEASIDENTIFIER___CollectionViewController: VIPERCollectionViewController, ___FILEBASENAMEASIDENTIFIER___ViewInterface {
 
-}
-
-extension ___FILEBASENAMEASIDENTIFIER___CollectionViewController: ___FILEBASENAMEASIDENTIFIER___ViewInterface {
-    
+    // MARK: - ___FILEBASENAMEASIDENTIFIER___ViewInterface
     
 }

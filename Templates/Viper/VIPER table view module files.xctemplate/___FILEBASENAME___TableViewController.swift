@@ -9,12 +9,8 @@
 import UIKit
 import VIPERModules
 
-class ___FILEBASENAMEASIDENTIFIER___TableViewController: VIPERTableViewController {
+class ___FILEBASENAMEASIDENTIFIER___TableViewController: VIPERTableViewController, ___FILEBASENAMEASIDENTIFIER___ViewInterface {
 
-    
-}
-
-extension ___FILEBASENAMEASIDENTIFIER___TableViewController: ___FILEBASENAMEASIDENTIFIER___ViewInterface {
-    
+    // MARK: - ___FILEBASENAMEASIDENTIFIER___ViewInterface
     
 }
