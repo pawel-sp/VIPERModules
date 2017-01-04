@@ -9,15 +9,13 @@
 import CoreData
 import VIPERModules
 
-class NSFRCInteractor: VIPERInteractor {
+class NSFRCInteractor: VIPERInteractor, NSFRCInteractorEventsInterface, NSFRCInteractorDataSourceInterface {
 
     // MARK: - Properties
     
     fileprivate var fetchResultController:NSFetchedResultsController<PersonEntity>?
-
-}
-
-extension NSFRCInteractor: NSFRCInteractorEventsInterface {
+    
+    // MARK: - NSFRCInteractorEventsInterface
     
     func fetchPersons() {
         fetchResultController = dataManager.newPersonFetchResultController()
@@ -36,9 +34,7 @@ extension NSFRCInteractor: NSFRCInteractorEventsInterface {
         })
     }
     
-}
-
-extension NSFRCInteractor: NSFRCInteractorDataSourceInterface {
+    // MARK: - NSFRCInteractorDataSourceInterface
     
     func numberOfPersons() -> Int {
         return fetchResultController?.fetchedObjects?.count ?? 0
@@ -51,5 +47,5 @@ extension NSFRCInteractor: NSFRCInteractorDataSourceInterface {
             return nil
         }
     }
-    
+
 }

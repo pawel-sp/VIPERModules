@@ -9,7 +9,7 @@
 import UIKit
 import VIPERModules
 
-class ExampleViewController: VIPERViewController, UITableViewDataSource {
+class ExampleViewController: VIPERViewController, ExampleViewInterface, UITableViewDataSource {
     
     // MARK: - Outlets
     
@@ -34,9 +34,7 @@ class ExampleViewController: VIPERViewController, UITableViewDataSource {
         return cell
     }
     
-}
-
-extension ExampleViewController: ExampleViewInterface {
+    // MARK: - ExampleViewInterface
     
     func displayNavigationBarTitle(_ title:String) {
         self.title = title

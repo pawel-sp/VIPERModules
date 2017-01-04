@@ -8,10 +8,9 @@
 
 import VIPERModules
 
-class NSFRCEventHandler: VIPEREventHandler {
-}
+class NSFRCEventHandler: VIPEREventHandler, NSFRCEventHandlerInterface {
 
-extension NSFRCEventHandler: NSFRCEventHandlerInterface {
+    // MARK: - NSFRCEventHandlerInterface
     
     func viewDidLoad() {
         interactorEvents.fetchPersons()
@@ -20,5 +19,5 @@ extension NSFRCEventHandler: NSFRCEventHandlerInterface {
     func didSelectAddButton() {
         interactorEvents.addRandomPerson()
     }
-    
+
 }
