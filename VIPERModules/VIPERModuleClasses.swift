@@ -178,7 +178,7 @@ open class VIPERInteractor: VIPERItem, VIPERInteractorDataSourceInterface, VIPER
     
     public typealias DelegateType = AnyObject
     
-    public weak var _delegate: DelegateType!
+    public weak var _delegate: DelegateType?
     
     // MARK: - VIPERInteractorDataSourceInterface
     

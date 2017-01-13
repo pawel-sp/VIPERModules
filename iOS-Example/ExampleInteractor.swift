@@ -18,9 +18,9 @@ class ExampleInteractor: VIPERInteractor, ExampleInteractorEventsInterface, Exam
     // MARK: - ExampleInteractorEventsInterface
     
     func loadData() {
-        dataManager.dataRequestWithCompletionBlock { [weak self] data in
-            self?.fetchedData = data
-            self?.delegate.loadedData()
+        dataManager.dataRequestWithCompletionBlock { data in
+            self.fetchedData = data
+            self.delegate?.loadedData()
         }
     }
     

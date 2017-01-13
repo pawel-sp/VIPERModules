@@ -80,7 +80,7 @@ public protocol VIPERInteractorEventsInterface: VIPERInteractorInterface {
 
     associatedtype DelegateType
     
-    var _delegate: DelegateType! { get set }
+    var _delegate: DelegateType? { get set }
 
 }
 
@@ -168,7 +168,7 @@ public protocol VIPERCustomInteractorEventsInterface: VIPERCustomInteractorInter
     
     associatedtype CustomDelegateType: VIPERPresenter
     
-    var delegate: CustomDelegateType { get }
+    var delegate: CustomDelegateType? { get }
     
 }
 
@@ -257,7 +257,7 @@ public extension VIPERCustomEventHandlerInterface {
 
 public extension VIPERCustomInteractorEventsInterface {
     
-    var delegate: CustomDelegateType { return _delegate as! CustomDelegateType }
+    var delegate: CustomDelegateType? { return _delegate as? CustomDelegateType }
     
 }
 
