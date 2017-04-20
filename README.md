@@ -54,3 +54,7 @@ You can run iOS-Example project to check all features. There are two separate mo
 
 - First one is the easiest possible module only to show dependencies between module parts
 - Second one presents how to use NSFetchResultController with VIPERModules
+
+## License
+
+VIPERModules is released under the MIT license.
