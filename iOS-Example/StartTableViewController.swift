@@ -14,8 +14,6 @@ class StartTableViewController: UITableViewController {
         switch indexPath.row {
             case 0:
                 navigationController?.pushViewController(ExampleWireframe().customModule(dataLimit: 5), animated: true)
-            case 1:
-                navigationController?.pushViewController(NSFRCWireframe().customModule(), animated: true)
             default:
                 break
         }

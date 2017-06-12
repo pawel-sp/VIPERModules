@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A4B5EECF1D9164660011978D /* VIPERModules.h in Headers */ = {isa = PBXBuildFile; fileRef = A4B5EECD1D9164660011978D /* VIPERModules.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A4B5EED91D9164710011978D /* VIPERFetchResultControllerClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EED51D9164710011978D /* VIPERFetchResultControllerClasses.swift */; };
-		A4B5EEDA1D9164710011978D /* VIPERFetchResultControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EED61D9164710011978D /* VIPERFetchResultControllerProtocols.swift */; };
 		A4B5EEDB1D9164710011978D /* VIPERModuleClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EED71D9164710011978D /* VIPERModuleClasses.swift */; };
 		A4B5EEDC1D9164710011978D /* VIPERModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EED81D9164710011978D /* VIPERModuleProtocols.swift */; };
 /* End PBXBuildFile section */
@@ -18,8 +16,6 @@
 		A4B5EECA1D9164660011978D /* VIPERModules.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VIPERModules.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B5EECD1D9164660011978D /* VIPERModules.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VIPERModules.h; sourceTree = "<group>"; };
 		A4B5EECE1D9164660011978D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4B5EED51D9164710011978D /* VIPERFetchResultControllerClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERFetchResultControllerClasses.swift; sourceTree = "<group>"; };
-		A4B5EED61D9164710011978D /* VIPERFetchResultControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERFetchResultControllerProtocols.swift; sourceTree = "<group>"; };
 		A4B5EED71D9164710011978D /* VIPERModuleClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERModuleClasses.swift; sourceTree = "<group>"; };
 		A4B5EED81D9164710011978D /* VIPERModuleProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERModuleProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,8 +50,6 @@
 		A4B5EECC1D9164660011978D /* VIPERModules */ = {
 			isa = PBXGroup;
 			children = (
-				A4B5EED51D9164710011978D /* VIPERFetchResultControllerClasses.swift */,
-				A4B5EED61D9164710011978D /* VIPERFetchResultControllerProtocols.swift */,
 				A4B5EED71D9164710011978D /* VIPERModuleClasses.swift */,
 				A4B5EED81D9164710011978D /* VIPERModuleProtocols.swift */,
 				A4B5EECD1D9164660011978D /* VIPERModules.h */,
@@ -145,10 +139,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4B5EEDA1D9164710011978D /* VIPERFetchResultControllerProtocols.swift in Sources */,
 				A4B5EEDB1D9164710011978D /* VIPERModuleClasses.swift in Sources */,
 				A4B5EEDC1D9164710011978D /* VIPERModuleProtocols.swift in Sources */,
-				A4B5EED91D9164710011978D /* VIPERFetchResultControllerClasses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
