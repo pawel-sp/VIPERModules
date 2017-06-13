@@ -24,195 +24,140 @@
 //  SOFTWARE.
 //
 
-import UIKit
-
-open class VIPERItem: NSObject {
+open class VIPERModuleItem {
+    
+    public required init() {}
     
     deinit {
-        print("VIPER: \(type(of:self)) deallocated")
+        VIPERLogger.log("\(type(of:self)) deallocated")
     }
     
 }
 
-
-open class VIPERWireframe: VIPERItem, VIPERWireframeInterface {
+open class VIPERWireframe<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERModuleItem, VIPERWireframeInterface {
     
-    // MARK: - VIPERWireframeInterface
+    public weak var _viewInterface: VIPERViewInterface!
+    public var viewInterface: ModuleBuilder.ViewInterace {
+        return _viewInterface as! ModuleBuilder.ViewInterace
+    }
     
-    public weak var viewController:UIViewController?
+    public var viewController: UIViewController? {
+        return viewInterface as? UIViewController
+    }
     
-    public func module<
-        VIPERViewControllerType:VIPERViewInterface,
-        VIPERPresenterType:VIPERPresenter,
-        VIPEREventHandlerType:VIPEREventHandler,
-        VIPERInteractorType:VIPERInteractor,
-        VIPERDataManagerType:VIPERDataManager>
-        (storyboard:UIStoryboard,
-         viewControllerID:String,
-         presenterType:VIPERPresenterType.Type,
-         eventHandlerType:VIPEREventHandlerType.Type,
-         interactorType:VIPERInteractorType.Type,
-         dataManagerType:VIPERDataManagerType.Type,
-         presenterInitBlock:((VIPERPresenterType.Type) -> (VIPERPresenterType))?,
-         eventHandlerInitBlock:((VIPEREventHandlerType.Type) -> (VIPEREventHandlerType))?,
-         interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
-         dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
-        ) -> VIPERViewControllerType {
-        
-        let presenter      = presenterInitBlock?(presenterType) ?? presenterType.init()
-        let eventHandler   = eventHandlerInitBlock?(eventHandlerType) ?? eventHandlerType.init()
-        let interactor     = interactorInitBlock?(interactorType) ?? interactorType.init()
-        let dataManager    = dataManagerInitBlock?(dataManagerType) ?? dataManagerType.init()
-        
-        let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as! VIPERViewControllerType
-        
-        if let viperViewController = viewController as? VIPERViewController {
-            viperViewController._presenter    = presenter
-            viperViewController._eventHandler = eventHandler
-        } else if let viperTableViewController = viewController as? VIPERTableViewController {
-            viperTableViewController._presenter    = presenter
-            viperTableViewController._eventHandler = eventHandler
-        } else if let viperCollectionViewController = viewController as? VIPERCollectionViewController {
-            viperCollectionViewController._presenter    = presenter
-            viperCollectionViewController._eventHandler = eventHandler
-        }
-        
-        presenter._viewInterface        = viewController
-        presenter._interactorDataSource = interactor
-        presenter._wireframe            = self
-        
-        eventHandler._presenter        = presenter
-        eventHandler._interactorEvents = interactor
-        
-        interactor._delegate    = presenter
-        interactor._dataManager = dataManager
-        
-        self.viewController = viewController as? UIViewController
-        
-        return viewController
+    open var storyboard:UIStoryboard! {
+        VIPERLogger.fatal("You need to override storyboard property in your subclass")
+    }
+    
+    open var viewControllerID:String! {
+        VIPERLogger.fatal("You need to override viewControllerID property in your subclass")
     }
     
 }
 
-open class VIPERViewController: UIViewController, VIPERViewInterface {
+open class VIPERViewController<ModuleBuilder: VIPERModuleBuilderInterface>: UIViewController, VIPERViewInterface {
     
-    // MARK: - Init & deinit
+    public var _presenter: VIPERPresenterInterface!
+    public var presenter: ModuleBuilder.PresenterInterface {
+        return _presenter as! ModuleBuilder.PresenterInterface
+    }
+    
+    public var _eventHandler: VIPEREventHandlerInterface!
+    public var eventHandler: ModuleBuilder.EventHandlerInterface {
+        return _eventHandler as! ModuleBuilder.EventHandlerInterface
+    }
     
     deinit {
-        print("VIPER: \(type(of:self)) deallocated")
+        VIPERLogger.log("\(type(of:self)) deallocated")
     }
-    
-    // MARK: - VIPERViewInterface
-    
-    public typealias PresenterInterfaceType    = AnyObject
-    public typealias EventHandlerInterfaceType = AnyObject
-    
-    public var _presenter: PresenterInterfaceType!
-    public var _eventHandler: EventHandlerInterfaceType!
     
 }
 
-open class VIPERTableViewController: UITableViewController, VIPERViewInterface {
+open class VIPERTableViewController<ModuleBuilder: VIPERModuleBuilderInterface>: UITableViewController, VIPERViewInterface {
     
-    // MARK: - Init & deinit
+    public var _presenter: VIPERPresenterInterface!
+    public var presenter: ModuleBuilder.PresenterInterface {
+        return _presenter as! ModuleBuilder.PresenterInterface
+    }
+    
+    public var _eventHandler: VIPEREventHandlerInterface!
+    public var eventHandler: ModuleBuilder.EventHandlerInterface {
+        return _eventHandler as! ModuleBuilder.EventHandlerInterface
+    }
     
     deinit {
-        print("VIPER: \(type(of:self)) deallocated")
+        VIPERLogger.log("\(type(of:self)) deallocated")
     }
-    
-    // MARK: - VIPERViewInterface
-    
-    public typealias PresenterInterfaceType    = AnyObject
-    public typealias EventHandlerInterfaceType = AnyObject
-    
-    public var _presenter: PresenterInterfaceType!
-    public var _eventHandler: EventHandlerInterfaceType!
     
 }
 
-open class VIPERCollectionViewController: UICollectionViewController, VIPERViewInterface {
+open class VIPERCollectionViewController<ModuleBuilder: VIPERModuleBuilderInterface>: UICollectionViewController, VIPERViewInterface {
     
-    // MARK: - Init & deinit
+    public var _presenter: VIPERPresenterInterface!
+    public var presenter: ModuleBuilder.PresenterInterface {
+        return _presenter as! ModuleBuilder.PresenterInterface
+    }
+    
+    public var _eventHandler: VIPEREventHandlerInterface!
+    public var eventHandler: ModuleBuilder.EventHandlerInterface {
+        return _eventHandler as! ModuleBuilder.EventHandlerInterface
+    }
     
     deinit {
-        print("VIPER: \(type(of:self)) deallocated")
-    }
-    
-    // MARK: - VIPERViewInterface
-    
-    public typealias PresenterInterfaceType    = AnyObject
-    public typealias EventHandlerInterfaceType = AnyObject
-    
-    public var _presenter: PresenterInterfaceType!
-    public var _eventHandler: EventHandlerInterfaceType!
-    
-}
-
-open class VIPERPresenter: VIPERItem, VIPERPresenterInterface, VIPERInteractorDelegate {
- 
-    // MARK: - VIPERPresenterInterface
-    
-    public typealias ViewInterfaceType                 = AnyObject
-    public typealias InteractorDataSourceInterfaceType = AnyObject
-    public typealias WireframeType                    = AnyObject
-    
-    public weak var _viewInterface: ViewInterfaceType!
-    public weak var _interactorDataSource: InteractorDataSourceInterfaceType!
-    public var _wireframe: WireframeType!
-    
-    required override public init() {
-        super.init()
-    }
-
-    // MARK: - VIPERInteractorDelegate
-    
-}
-
-open class VIPEREventHandler: VIPERItem, VIPEREventHandlerInterface {
-
-    // MARK: - VIPEREventHandlerInterface
-    
-    public typealias PresenterInterfaceType        = AnyObject
-    public typealias InteractorEventsInterfaceType = AnyObject
-    
-    public weak var _presenter: PresenterInterfaceType!
-    public var _interactorEvents: InteractorEventsInterfaceType!
-    
-    required override public init() {
-        super.init()
+        VIPERLogger.log("\(type(of:self)) deallocated")
     }
     
 }
 
-open class VIPERInteractor: VIPERItem, VIPERInteractorDataSourceInterface, VIPERInteractorEventsInterface {
-
-    // MARK: - VIPERInteractorInterface
+open class VIPERPresenter<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERModuleItem, VIPERPresenterInterface {
     
-    required override public init() {
-        super.init()
+    public weak var _viewInterface: VIPERViewInterface!
+    public var viewInterface: ModuleBuilder.ViewInterace {
+        return _viewInterface as! ModuleBuilder.ViewInterace
     }
     
-    // MARK: - VIPERInteractorEventsInterface
+    public var _wireframe: VIPERWireframeInterface!
+    public var wireframe: ModuleBuilder.WireframeInterface {
+        return _wireframe as! ModuleBuilder.WireframeInterface
+    }
     
-    public typealias DelegateType = AnyObject
-    
-    public weak var _delegate: DelegateType?
-    
-    // MARK: - VIPERInteractorDataSourceInterface
-    
-    public typealias DataManagerType = AnyObject
-    
-    public var _dataManager: DataManagerType!
-    
-}
-
-open class VIPERDataManager: VIPERItem {
-    
-    // MARK: - Init
-    
-    required override public init() {
-        super.init()
+    public var _interactorDataSource: VIPERInteractorDataSourceInterface!
+    public var interactorDataSource: ModuleBuilder.InteractorDataSourceInterface {
+        return _interactorDataSource as! ModuleBuilder.InteractorDataSourceInterface
     }
     
 }
 
+open class VIPEREventHandler<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERModuleItem, VIPEREventHandlerInterface {
+    
+    public var _presenter: VIPERPresenterInterface!
+    public var presenter: ModuleBuilder.PresenterInterface {
+        return _presenter as! ModuleBuilder.PresenterInterface
+    }
+    
+    public var _interactorEvents: VIPERInteractorEventsInterface!
+    public var interactorEvents: ModuleBuilder.InteractorEventsInterface {
+        return _interactorEvents as! ModuleBuilder.InteractorEventsInterface
+    }
+    
+
+    
+}
+
+open class VIPERInteractor<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERModuleItem, VIPERInteractorDataSourceInterface, VIPERInteractorEventsInterface {
+    
+    public var _dataManager: VIPERDataManagerInterface!
+    public var dataManager: ModuleBuilder.DataManagerInterface {
+        return _dataManager as! ModuleBuilder.DataManagerInterface
+    }
+    
+    public weak var _delegate: VIPERInteractorEventsDelegate?
+    public var delegate: ModuleBuilder.InteractorEventsDelegate? {
+        return _delegate as? ModuleBuilder.InteractorEventsDelegate
+    }
+    
+}
+
+open class VIPERDataManager: VIPERModuleItem, VIPERDataManagerInterface {
+    
+}
