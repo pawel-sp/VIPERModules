@@ -1,6 +1,6 @@
 //
 //  VIPERModuleClasses.swift
-//  ViperUKswift3
+//  VIPERModules
 //
 //  Created by Paweł Sporysz on 08.09.2016.
 //  Copyright (c) 2017 Paweł Sporysz
