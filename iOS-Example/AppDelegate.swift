@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  ViperModuleGenerator
+//  iOS-Example
 //
 //  Created by Paweł Sporysz on 14.09.2016.
 //  Copyright © 2016 Paweł Sporysz. All rights reserved.
@@ -15,10 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        CoreDataStack.sharedStack.saveContext()
     }
 
 }

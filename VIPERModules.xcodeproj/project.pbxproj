@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		A4B5EECF1D9164660011978D /* VIPERModules.h in Headers */ = {isa = PBXBuildFile; fileRef = A4B5EECD1D9164660011978D /* VIPERModules.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A4B5EED91D9164710011978D /* VIPERFetchResultControllerClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EED51D9164710011978D /* VIPERFetchResultControllerClasses.swift */; };
-		A4B5EEDA1D9164710011978D /* VIPERFetchResultControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EED61D9164710011978D /* VIPERFetchResultControllerProtocols.swift */; };
 		A4B5EEDB1D9164710011978D /* VIPERModuleClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EED71D9164710011978D /* VIPERModuleClasses.swift */; };
 		A4B5EEDC1D9164710011978D /* VIPERModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EED81D9164710011978D /* VIPERModuleProtocols.swift */; };
+		A4D3D67B1EEFC6B100824E97 /* VIPERModuleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D3D67A1EEFC6B100824E97 /* VIPERModuleExtensions.swift */; };
+		A4D3D68F1EEFD59600824E97 /* VIPERLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D3D68E1EEFD59600824E97 /* VIPERLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A4B5EECA1D9164660011978D /* VIPERModules.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VIPERModules.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B5EECD1D9164660011978D /* VIPERModules.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VIPERModules.h; sourceTree = "<group>"; };
 		A4B5EECE1D9164660011978D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4B5EED51D9164710011978D /* VIPERFetchResultControllerClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERFetchResultControllerClasses.swift; sourceTree = "<group>"; };
-		A4B5EED61D9164710011978D /* VIPERFetchResultControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERFetchResultControllerProtocols.swift; sourceTree = "<group>"; };
 		A4B5EED71D9164710011978D /* VIPERModuleClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERModuleClasses.swift; sourceTree = "<group>"; };
 		A4B5EED81D9164710011978D /* VIPERModuleProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERModuleProtocols.swift; sourceTree = "<group>"; };
+		A4D3D67A1EEFC6B100824E97 /* VIPERModuleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERModuleExtensions.swift; sourceTree = "<group>"; };
+		A4D3D68E1EEFD59600824E97 /* VIPERLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +54,10 @@
 		A4B5EECC1D9164660011978D /* VIPERModules */ = {
 			isa = PBXGroup;
 			children = (
-				A4B5EED51D9164710011978D /* VIPERFetchResultControllerClasses.swift */,
-				A4B5EED61D9164710011978D /* VIPERFetchResultControllerProtocols.swift */,
+				A4D3D68E1EEFD59600824E97 /* VIPERLogger.swift */,
 				A4B5EED71D9164710011978D /* VIPERModuleClasses.swift */,
 				A4B5EED81D9164710011978D /* VIPERModuleProtocols.swift */,
+				A4D3D67A1EEFC6B100824E97 /* VIPERModuleExtensions.swift */,
 				A4B5EECD1D9164660011978D /* VIPERModules.h */,
 				A4B5EECE1D9164660011978D /* Info.plist */,
 			);
@@ -102,12 +102,11 @@
 		A4B5EEC11D9164660011978D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Paweł Sporysz";
 				TargetAttributes = {
 					A4B5EEC91D9164660011978D = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = EZ57PM2RP9;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -145,10 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4B5EEDA1D9164710011978D /* VIPERFetchResultControllerProtocols.swift in Sources */,
+				A4D3D67B1EEFC6B100824E97 /* VIPERModuleExtensions.swift in Sources */,
 				A4B5EEDB1D9164710011978D /* VIPERModuleClasses.swift in Sources */,
+				A4D3D68F1EEFD59600824E97 /* VIPERLogger.swift in Sources */,
 				A4B5EEDC1D9164710011978D /* VIPERModuleProtocols.swift in Sources */,
-				A4B5EED91D9164710011978D /* VIPERFetchResultControllerClasses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +172,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -226,6 +226,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -260,14 +261,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = VIPERModules/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.untitledkingdom.VIPERModules;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pawelsporysz.VIPERModules;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -281,14 +282,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = VIPERModules/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.untitledkingdom.VIPERModules;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pawelsporysz.VIPERModules;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;

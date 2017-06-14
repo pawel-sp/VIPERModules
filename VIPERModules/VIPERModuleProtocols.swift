@@ -24,263 +24,73 @@
 //  SOFTWARE.
 //
 
-import UIKit
-
-// MARK: - Base protocols
-
-public protocol VIPERWireframeInterface: NSObjectProtocol {
+public protocol VIPERModuleBuilderInterface {
     
-    var viewController:UIViewController? { get }
-    
-    func module<
-        VIPERViewControllerType:VIPERViewInterface,
-        VIPERPresenterType:VIPERPresenter,
-        VIPEREventHandlerType:VIPEREventHandler,
-        VIPERInteractorType:VIPERInteractor,
-        VIPERDataManagerType:VIPERDataManager>
-        (storyboard:UIStoryboard,
-         viewControllerID:String,
-         presenterType:VIPERPresenterType.Type,
-         eventHandlerType:VIPEREventHandlerType.Type,
-         interactorType:VIPERInteractorType.Type,
-         dataManagerType:VIPERDataManagerType.Type,
-         presenterInitBlock:((VIPERPresenterType.Type) -> (VIPERPresenterType))?,
-         eventHandlerInitBlock:((VIPEREventHandlerType.Type) -> (VIPEREventHandlerType))?,
-         interactorInitBlock:((VIPERInteractorType.Type) -> (VIPERInteractorType))?,
-         dataManagerInitBlock:((VIPERDataManagerType.Type) -> (VIPERDataManagerType))?
-        ) -> VIPERViewControllerType
+    associatedtype WireframeInterface
+    associatedtype ViewInterace
+    associatedtype PresenterInterface
+    associatedtype EventHandlerInterface
+    associatedtype InteractorDataSourceInterface
+    associatedtype InteractorEventsInterface
+    associatedtype InteractorEventsDelegate
+    associatedtype DataManagerInterface
     
 }
 
-public protocol VIPERViewInterface: NSObjectProtocol {
-
-    associatedtype PresenterInterfaceType
-    associatedtype EventHandlerInterfaceType
+public protocol VIPERWireframeInterface {
     
-    var _presenter:PresenterInterfaceType! { get set }
-    var _eventHandler:EventHandlerInterfaceType! { get set }
-
-}
-
-public protocol VIPERPresenterInterface: NSObjectProtocol {
-
-    associatedtype ViewInterfaceType
-    associatedtype InteractorDataSourceInterfaceType
-    associatedtype WireframeType
-    
-    var _viewInterface: ViewInterfaceType! { get set }
-    var _interactorDataSource: InteractorDataSourceInterfaceType! { get set }
-    var _wireframe: WireframeType! { get set }
-    
-    init()
-
-}
-
-public protocol VIPEREventHandlerInterface: NSObjectProtocol {
-
-    associatedtype PresenterInterfaceType
-    associatedtype InteractorEventsInterfaceType
-    
-    var _presenter: PresenterInterfaceType! { get set }
-    var _interactorEvents: InteractorEventsInterfaceType! { get set }
- 
+    var _viewInterface: VIPERViewInterface! { get set }
+    var viewController: UIViewController? { get }
+    var storyboard:UIStoryboard! { get }
+    var viewControllerID:String! { get }
     init()
     
 }
 
-public protocol VIPERInteractorInterface: NSObjectProtocol {
+public protocol VIPERViewInterface: class {
     
+    var _presenter: VIPERPresenterInterface! { get set }
+    var _eventHandler: VIPEREventHandlerInterface! { get set }
+    
+}
+
+public protocol VIPERPresenterInterface {
+    
+    var _viewInterface: VIPERViewInterface! { get set }
+    var _wireframe: VIPERWireframeInterface! { get set }
+    var _interactorDataSource: VIPERInteractorDataSourceInterface! { get set }
     init()
     
 }
 
-public protocol VIPERInteractorEventsInterface: VIPERInteractorInterface {
-
-    associatedtype DelegateType
+public protocol VIPEREventHandlerInterface {
     
-    var _delegate: DelegateType? { get set }
-
-}
-
-public protocol VIPERInteractorDataSourceInterface: VIPERInteractorInterface {
-
-    associatedtype DataManagerType
-    
-    var _dataManager: DataManagerType! { get set }
-
-}
-
-public protocol VIPERInteractorDelegate: NSObjectProtocol {}
-
-// MARK: - Custom protocols
-
-public protocol VIPERCustomWireframeInterface: VIPERWireframeInterface {
-    
-    associatedtype CustomViewInterfaceType: VIPERViewInterface
-    associatedtype CustomPresenterInterfaceType: VIPERPresenter
-    associatedtype CustomEventHandlerInterfaceType: VIPEREventHandler
-    associatedtype CustomInteractorInterfaceType: VIPERInteractor
-    associatedtype CustomDataManagerType: VIPERDataManager
-    
-    var storyboard:UIStoryboard { get }
-    var viewControllerID:String { get }
-    
-    func customModule() -> CustomViewInterfaceType
-    func customModule(
-        presenterInitBlock: ((CustomPresenterInterfaceType.Type) -> (CustomPresenterInterfaceType))?,
-        eventHandlerInitBlock: ((CustomEventHandlerInterfaceType.Type) -> (CustomEventHandlerInterfaceType))?,
-        interactorInitBlock: ((CustomInteractorInterfaceType.Type) -> (CustomInteractorInterfaceType))?,
-        dataManagerInitBlock: ((CustomDataManagerType.Type) -> (CustomDataManagerType))?)
-        -> CustomViewInterfaceType
-    func customModule(
-        viewControllerID: String?,
-        presenterInitBlock: ((CustomPresenterInterfaceType.Type) -> (CustomPresenterInterfaceType))?,
-        eventHandlerInitBlock: ((CustomEventHandlerInterfaceType.Type) -> (CustomEventHandlerInterfaceType))?,
-        interactorInitBlock: ((CustomInteractorInterfaceType.Type) -> (CustomInteractorInterfaceType))?,
-        dataManagerInitBlock: ((CustomDataManagerType.Type) -> (CustomDataManagerType))?)
-        -> CustomViewInterfaceType
+    var _presenter: VIPERPresenterInterface! { get set }
+    var _interactorEvents: VIPERInteractorEventsInterface! { get set }
+    init()
     
 }
 
-public protocol VIPERCustomViewInterface: VIPERViewInterface {
+public protocol VIPERInteractorDataSourceInterface {
     
-    associatedtype CustomPresenterType: VIPERPresenter
-    associatedtype CustomEventHandlerType: VIPEREventHandler
-    
-    var presenter: CustomPresenterType { get }
-    var eventHandler: CustomEventHandlerType { get }
+    var _dataManager: VIPERDataManagerInterface! { get set }
+    init()
     
 }
 
-public protocol VIPERCustomPresenterInterface: VIPERPresenterInterface {
+public protocol VIPERInteractorEventsInterface {
     
-    associatedtype CustomViewControllerType: VIPERViewInterface
-    associatedtype CustomInteractorDataSourceType: VIPERInteractor
-    associatedtype CustomWireframeType: VIPERWireframe
-    
-    var viewInterface: CustomViewControllerType { get }
-    var interactorDataSource: CustomInteractorDataSourceType { get }
-    var wireframe:CustomWireframeType { get }
+    var _delegate: VIPERInteractorEventsDelegate? { get set }
+    init()
     
 }
 
-public protocol VIPERCustomEventHandlerInterface: VIPEREventHandlerInterface {
-    
-    associatedtype CustomPresenterType: VIPERPresenter
-    associatedtype CustomInteractorEventsType: VIPERInteractor
-    
-    var presenter: CustomPresenterType { get }
-    var interactorEvents: CustomInteractorEventsType { get }
+public protocol VIPERInteractorEventsDelegate: class {
     
 }
 
-public protocol VIPERCustomInteractorInterface: VIPERInteractorInterface {
+public protocol VIPERDataManagerInterface {
     
-    associatedtype CustomDataManagerType: VIPERDataManager
-    
-    var dataManager: CustomDataManagerType { get }
-
-}
-
-public protocol VIPERCustomInteractorEventsInterface: VIPERCustomInteractorInterface, VIPERInteractorEventsInterface {
-    
-    associatedtype CustomDelegateType: VIPERPresenter
-    
-    var delegate: CustomDelegateType? { get }
-    
-}
-
-public protocol VIPERCustomInteractorDataSourceInterface: VIPERCustomInteractorInterface, VIPERInteractorDataSourceInterface {
-
-}
-
-public protocol VIPERCustomInteractorDelegate: VIPERInteractorDelegate {
-
-}
-
-// MARK: - Extensions
-
-public extension VIPERCustomWireframeInterface {
-    
-    func customModule(
-        presenterInitBlock: ((CustomPresenterInterfaceType.Type) -> (CustomPresenterInterfaceType))?,
-        eventHandlerInitBlock: ((CustomEventHandlerInterfaceType.Type) -> (CustomEventHandlerInterfaceType))?,
-        interactorInitBlock: ((CustomInteractorInterfaceType.Type) -> (CustomInteractorInterfaceType))?,
-        dataManagerInitBlock: ((CustomDataManagerType.Type) -> (CustomDataManagerType))?) -> CustomViewInterfaceType {
-        
-        return customModule(
-            viewControllerID: self.viewControllerID,
-            presenterInitBlock: presenterInitBlock,
-            eventHandlerInitBlock: eventHandlerInitBlock,
-            interactorInitBlock: interactorInitBlock,
-            dataManagerInitBlock: dataManagerInitBlock
-        )
-        
-    }
-    
-    func customModule(
-        viewControllerID: String?,
-        presenterInitBlock: ((CustomPresenterInterfaceType.Type) -> (CustomPresenterInterfaceType))?,
-        eventHandlerInitBlock: ((CustomEventHandlerInterfaceType.Type) -> (CustomEventHandlerInterfaceType))?,
-        interactorInitBlock: ((CustomInteractorInterfaceType.Type) -> (CustomInteractorInterfaceType))?,
-        dataManagerInitBlock: ((CustomDataManagerType.Type) -> (CustomDataManagerType))?) -> CustomViewInterfaceType {
-        
-        return module(
-            storyboard: storyboard,
-            viewControllerID: viewControllerID ?? self.viewControllerID,
-            presenterType: CustomPresenterInterfaceType.self,
-            eventHandlerType: CustomEventHandlerInterfaceType.self,
-            interactorType: CustomInteractorInterfaceType.self,
-            dataManagerType: CustomDataManagerType.self,
-            presenterInitBlock: presenterInitBlock,
-            eventHandlerInitBlock: eventHandlerInitBlock,
-            interactorInitBlock: interactorInitBlock,
-            dataManagerInitBlock: dataManagerInitBlock
-        )
-        
-    }
-    
-    func customModule() -> CustomViewInterfaceType {
-        return customModule(
-            presenterInitBlock: nil,
-            eventHandlerInitBlock: nil,
-            interactorInitBlock: nil,
-            dataManagerInitBlock: nil
-        )
-    }
-    
-}
-
-public extension VIPERCustomViewInterface {
-    
-    var presenter:CustomPresenterType { return _presenter as! CustomPresenterType }
-    var eventHandler:CustomEventHandlerType { return _eventHandler as! CustomEventHandlerType }
-    
-}
-
-public extension VIPERCustomPresenterInterface {
-    
-    var viewInterface: CustomViewControllerType { return _viewInterface as! CustomViewControllerType }
-    var interactorDataSource: CustomInteractorDataSourceType { return _interactorDataSource as! CustomInteractorDataSourceType }
-    var wireframe:CustomWireframeType { return _wireframe as! CustomWireframeType }
-    
-}
-
-public extension VIPERCustomEventHandlerInterface {
-    
-    var presenter: CustomPresenterType { return _presenter as! CustomPresenterType }
-    var interactorEvents: CustomInteractorEventsType { return _interactorEvents as! CustomInteractorEventsType }
-    
-}
-
-public extension VIPERCustomInteractorEventsInterface {
-    
-    var delegate: CustomDelegateType? { return _delegate as? CustomDelegateType }
-    
-}
-
-public extension VIPERCustomInteractorDataSourceInterface {
-    
-    var dataManager: CustomDataManagerType { return _dataManager as! CustomDataManagerType }
+    init()
     
 }
