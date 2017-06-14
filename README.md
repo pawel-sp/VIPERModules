@@ -1,8 +1,3 @@
-#VIPERModuleGenerator
-
-Easy way to generate and setup your modules using VIPER pattern architecture.
-
-
 ## Introduction
 
 Here you can find description of VIPER pattern architecture [https://www.objc.io/issues/13-architecture/viper/](https://www.objc.io/issues/13-architecture/viper/).
