@@ -14,7 +14,7 @@ You can run project and study prepared example module.
 To install templates for VIPER modules you need to copy ```Templates/VIPER``` folder to Xcode templates folder:
 
 ```
-/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File Templates
+~/Library/Developer/Xcode/Templates/
 ```
 
 ## UITableViewController, UICollectionViewController
