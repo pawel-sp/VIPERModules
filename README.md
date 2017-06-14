@@ -17,14 +17,6 @@ To install templates for VIPER modules you need to copy ```Templates/VIPER``` fo
 /Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File Templates
 ```
 
-## Install
-
-You can install VIPERModules via CococaPods, put that line to your Podfile:
-
-```
-pod 'VIPERModules', :git => "https://bitbucket.org/pawel-sp/vipermodulegenerator.git"
-```
-
 ## UITableViewController, UICollectionViewController
 
 Generated module view controller subclasses from VIPERViewController which is a regular UIViewController. VIPERModules supports UITableViewController and UICollectionViewController. The only thing you need to do that is to change base class for generated view controller to VIPERTableViewController or VIPERCollectionViewController.
