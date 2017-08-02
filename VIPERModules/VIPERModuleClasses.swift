@@ -36,13 +36,9 @@ open class VIPERModuleItem {
 
 open class VIPERWireframe<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERModuleItem, VIPERWireframeInterface {
     
-    public weak var _viewInterface: VIPERViewInterface!
-    public var viewInterface: ModuleBuilder.ViewInterace {
-        return _viewInterface as! ModuleBuilder.ViewInterace
-    }
-    
+    public weak var _viewController: UIViewController?
     public var viewController: UIViewController? {
-        return viewInterface as? UIViewController
+        return _viewController
     }
     
     open var storyboard:UIStoryboard! {

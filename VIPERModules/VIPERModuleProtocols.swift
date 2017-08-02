@@ -39,7 +39,7 @@ public protocol VIPERModuleBuilderInterface {
 
 public protocol VIPERWireframeInterface {
     
-    var _viewInterface: VIPERViewInterface! { get set }
+    var _viewController: UIViewController? { get set }
     var viewController: UIViewController? { get }
     var storyboard:UIStoryboard! { get }
     var viewControllerID:String! { get }

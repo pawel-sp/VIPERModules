@@ -63,7 +63,7 @@ public extension VIPERModuleBuilderInterface {
             VIPERLogger.fatal("DataManagerInterface needs to conform to protocol VIPERDataManagerInterface")
         }
         
-        viperWireframe._viewInterface = viperViewInteface
+        viperWireframe._viewController = viperViewInteface as? UIViewController
         
         viperViewInteface._presenter    = viperPresenter
         viperViewInteface._eventHandler = viperEventHandler
