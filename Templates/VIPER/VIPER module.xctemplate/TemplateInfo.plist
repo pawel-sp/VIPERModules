@@ -54,6 +54,25 @@
 			<key>Default</key>
 			<string>VIPERViewController</string>
 		</dict>
+		<dict>
+			<key>Description</key>
+			<string>View Model type</string>
+			<key>Identifier</key>
+			<string>_multipleViewModels</string>
+			<key>Name</key>
+			<string>Multiple view models (otherwise is single)</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>RequiredOptions</key>
+			<dict>
+				<key>vcBaseClass</key>
+				<array>
+					<string>VIPERViewController</string>
+					<string>VIPERTableViewController</string>
+					<string>VIPERCollectionViewController</string>
+				</array>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

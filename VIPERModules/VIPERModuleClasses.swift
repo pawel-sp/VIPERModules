@@ -49,11 +49,6 @@ open class VIPERWireframe<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERModu
 }
 
 open class VIPERViewController<ModuleBuilder: VIPERModuleBuilderInterface>: UIViewController, VIPERViewInterface {
-    public var _presenter: VIPERPresenterInterface!
-    public var presenter: ModuleBuilder.PresenterInterface {
-        return _presenter as! ModuleBuilder.PresenterInterface
-    }
-    
     public var _eventHandler: VIPEREventHandlerInterface!
     public var eventHandler: ModuleBuilder.EventHandlerInterface {
         return _eventHandler as! ModuleBuilder.EventHandlerInterface
@@ -65,11 +60,6 @@ open class VIPERViewController<ModuleBuilder: VIPERModuleBuilderInterface>: UIVi
 }
 
 open class VIPERTableViewController<ModuleBuilder: VIPERModuleBuilderInterface>: UITableViewController, VIPERViewInterface {
-    public var _presenter: VIPERPresenterInterface!
-    public var presenter: ModuleBuilder.PresenterInterface {
-        return _presenter as! ModuleBuilder.PresenterInterface
-    }
-    
     public var _eventHandler: VIPEREventHandlerInterface!
     public var eventHandler: ModuleBuilder.EventHandlerInterface {
         return _eventHandler as! ModuleBuilder.EventHandlerInterface
@@ -81,11 +71,6 @@ open class VIPERTableViewController<ModuleBuilder: VIPERModuleBuilderInterface>:
 }
 
 open class VIPERCollectionViewController<ModuleBuilder: VIPERModuleBuilderInterface>: UICollectionViewController, VIPERViewInterface {
-    public var _presenter: VIPERPresenterInterface!
-    public var presenter: ModuleBuilder.PresenterInterface {
-        return _presenter as! ModuleBuilder.PresenterInterface
-    }
-    
     public var _eventHandler: VIPEREventHandlerInterface!
     public var eventHandler: ModuleBuilder.EventHandlerInterface {
         return _eventHandler as! ModuleBuilder.EventHandlerInterface

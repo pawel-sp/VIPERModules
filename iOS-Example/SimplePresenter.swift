@@ -8,7 +8,7 @@
 
 import VIPERModules
 
-class SimplePresenter: VIPERPresenter<SimpleModuleBuilder>, SimplePresenterInterface, SimpleInteractorEventsDelegate {
+class SimplePresenter: VIPERVMSPresenter<SimpleModuleBuilder>, SimplePresenterInterface, SimpleInteractorEventsDelegate {
     
     // MARK: - SimplePresenterInterface
     
@@ -16,17 +16,10 @@ class SimplePresenter: VIPERPresenter<SimpleModuleBuilder>, SimplePresenterInter
         viewInterface?.displayNavigationBarTitle("Simple Module")
     }
     
-    func numberOfRows() -> Int {
-        return interactorDataSource.dataCount()
-    }
-    
-    func titleForRow(at indexPath:IndexPath) -> String {
-        return interactorDataSource.titleForData(at: indexPath.row)
-    }
-    
     // MARK: - SimpleInteractorEventsDelegate
     
     func loadedData() {
+        viewInterfaceVMS = interactorDataSource.fetchedDataInfo?.map({ SimpleViewModel(title: $0.title) }) ?? []
         viewInterface?.reloadTableView()
     }
     

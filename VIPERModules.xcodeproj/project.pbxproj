@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4B2B8741F34B96400D0F3D4 /* VIPERModuleViewModelClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2B8731F34B96400D0F3D4 /* VIPERModuleViewModelClasses.swift */; };
+		A4B2B8791F34BA8600D0F3D4 /* VIPERModuleViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2B8781F34BA8600D0F3D4 /* VIPERModuleViewModelProtocols.swift */; };
 		A4B5EECF1D9164660011978D /* VIPERModules.h in Headers */ = {isa = PBXBuildFile; fileRef = A4B5EECD1D9164660011978D /* VIPERModules.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A4B5EEDB1D9164710011978D /* VIPERModuleClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EED71D9164710011978D /* VIPERModuleClasses.swift */; };
 		A4B5EEDC1D9164710011978D /* VIPERModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5EED81D9164710011978D /* VIPERModuleProtocols.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4B2B8731F34B96400D0F3D4 /* VIPERModuleViewModelClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERModuleViewModelClasses.swift; sourceTree = "<group>"; };
+		A4B2B8781F34BA8600D0F3D4 /* VIPERModuleViewModelProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERModuleViewModelProtocols.swift; sourceTree = "<group>"; };
 		A4B5EECA1D9164660011978D /* VIPERModules.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VIPERModules.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B5EECD1D9164660011978D /* VIPERModules.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VIPERModules.h; sourceTree = "<group>"; };
 		A4B5EECE1D9164660011978D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +39,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4B2B8751F34BA5200D0F3D4 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A4B5EED81D9164710011978D /* VIPERModuleProtocols.swift */,
+				A4B5EED71D9164710011978D /* VIPERModuleClasses.swift */,
+				A4D3D67A1EEFC6B100824E97 /* VIPERModuleExtensions.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		A4B2B8761F34BA5D00D0F3D4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A4D3D68E1EEFD59600824E97 /* VIPERLogger.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		A4B2B8771F34BA6C00D0F3D4 /* View Modeling */ = {
+			isa = PBXGroup;
+			children = (
+				A4B2B8781F34BA8600D0F3D4 /* VIPERModuleViewModelProtocols.swift */,
+				A4B2B8731F34B96400D0F3D4 /* VIPERModuleViewModelClasses.swift */,
+			);
+			name = "View Modeling";
+			sourceTree = "<group>";
+		};
 		A4B5EEC01D9164660011978D = {
 			isa = PBXGroup;
 			children = (
@@ -54,10 +85,9 @@
 		A4B5EECC1D9164660011978D /* VIPERModules */ = {
 			isa = PBXGroup;
 			children = (
-				A4D3D68E1EEFD59600824E97 /* VIPERLogger.swift */,
-				A4B5EED71D9164710011978D /* VIPERModuleClasses.swift */,
-				A4B5EED81D9164710011978D /* VIPERModuleProtocols.swift */,
-				A4D3D67A1EEFC6B100824E97 /* VIPERModuleExtensions.swift */,
+				A4B2B8751F34BA5200D0F3D4 /* Base */,
+				A4B2B8771F34BA6C00D0F3D4 /* View Modeling */,
+				A4B2B8761F34BA5D00D0F3D4 /* Utils */,
 				A4B5EECD1D9164660011978D /* VIPERModules.h */,
 				A4B5EECE1D9164660011978D /* Info.plist */,
 			);
@@ -145,8 +175,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4D3D67B1EEFC6B100824E97 /* VIPERModuleExtensions.swift in Sources */,
+				A4B2B8791F34BA8600D0F3D4 /* VIPERModuleViewModelProtocols.swift in Sources */,
 				A4B5EEDB1D9164710011978D /* VIPERModuleClasses.swift in Sources */,
 				A4D3D68F1EEFD59600824E97 /* VIPERLogger.swift in Sources */,
+				A4B2B8741F34B96400D0F3D4 /* VIPERModuleViewModelClasses.swift in Sources */,
 				A4B5EEDC1D9164710011978D /* VIPERModuleProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

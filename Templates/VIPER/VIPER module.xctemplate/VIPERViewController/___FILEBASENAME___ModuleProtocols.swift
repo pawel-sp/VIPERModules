@@ -12,7 +12,7 @@ protocol ___VARIABLE_moduleName___WireframeInterface: VIPERWireframeInterface {
     
 }
 
-protocol ___VARIABLE_moduleName___ViewInterface: VIPERViewInterface {
+protocol ___VARIABLE_moduleName___ViewInterface: VIPERViewModelInterface {
     
 }
 

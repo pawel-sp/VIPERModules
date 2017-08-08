@@ -8,7 +8,7 @@
 
 import VIPERModules
 
-class ___VARIABLE_moduleName___Presenter: VIPERVMPresenter<___VARIABLE_moduleName___ModuleBuilder>, ___VARIABLE_moduleName___PresenterInterface, ___VARIABLE_moduleName___InteractorEventsDelegate {
+class ___VARIABLE_moduleName___Presenter: VIPERVMSPresenter<___VARIABLE_moduleName___ModuleBuilder>, ___VARIABLE_moduleName___PresenterInterface, ___VARIABLE_moduleName___InteractorEventsDelegate {
 
     // MARK: - ___VARIABLE_moduleName___PresenterInterface
     

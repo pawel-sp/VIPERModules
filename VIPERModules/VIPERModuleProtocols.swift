@@ -30,6 +30,7 @@ public protocol VIPERModuleBuilderInterface {
     
     associatedtype WireframeInterface
     associatedtype ViewInterace
+    associatedtype ViewModel
     associatedtype PresenterInterface
     associatedtype EventHandlerInterface
     associatedtype InteractorDataSourceInterface
@@ -47,7 +48,6 @@ public protocol VIPERWireframeInterface: class {
 }
 
 public protocol VIPERViewInterface: class {
-    var _presenter: VIPERPresenterInterface! { get set }
     var _eventHandler: VIPEREventHandlerInterface! { get set }
 }
 

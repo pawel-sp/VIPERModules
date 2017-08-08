@@ -8,7 +8,7 @@
 
 import VIPERModules
 
-class SimpleViewController: VIPERViewController<SimpleModuleBuilder>, SimpleViewInterface, UITableViewDataSource {
+class SimpleViewController: VIPERVMSViewController<SimpleModuleBuilder>, SimpleViewInterface, UITableViewDataSource {
    
     // MARK: - Outlets
     
@@ -24,12 +24,12 @@ class SimpleViewController: VIPERViewController<SimpleModuleBuilder>, SimpleView
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfRows()
+        return viewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
-        cell.textLabel?.text = presenter.titleForRow(at: indexPath)
+        cell.textLabel?.text = viewModels[indexPath.row].title
         return cell
     }
     
@@ -42,5 +42,17 @@ class SimpleViewController: VIPERViewController<SimpleModuleBuilder>, SimpleView
     func reloadTableView() {
         self.tableView.reloadData()
     }
+    
+}
+
+protocol SimpleViewModelInterface {
+    
+    var title: String { get }
+    
+}
+
+struct SimpleViewModel: SimpleViewModelInterface {
+    
+    let title:String
     
 }

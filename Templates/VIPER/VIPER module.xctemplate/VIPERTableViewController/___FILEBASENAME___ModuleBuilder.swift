@@ -12,6 +12,7 @@ class ___VARIABLE_moduleName___ModuleBuilder: VIPERModuleBuilderInterface {
     
     typealias WireframeInterface             = ___VARIABLE_moduleName___WireframeInterface
     typealias ViewInterace                   = ___VARIABLE_moduleName___ViewInterface
+    typealias ViewModel                      = <set your view model type here>
     typealias PresenterInterface             = ___VARIABLE_moduleName___PresenterInterface
     typealias EventHandlerInterface          = ___VARIABLE_moduleName___EventHandlerInterface
     typealias InteractorDataSourceInterface  = ___VARIABLE_moduleName___InteractorDataSourceInterface

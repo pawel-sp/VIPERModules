@@ -28,6 +28,10 @@ To install templates for VIPER modules you need to copy ```Templates/VIPER``` fo
 
 VIPERModules supports UITableViewController and UICollectionViewController. During files creation from template you can choose different base view controller (there are following options: VIPERViewController, VIPERTableViewController and VIPERCollectionViewController).
 
+## View Models
+
+Module's view controller doesn't have reference to presenter. It means that you can either implement custom view interface methods to display data or you can use build-in support for view modelling. There are two kind of base classes: for single view model and array of view models (you can pick one of those two options during files creation from template). VIPERVMPresenter has extra property called viewInterfaceVM (viewInterfaceVMS in VIPERVMSPresenter) which should be used to assign correct view model inside view interface.
+
 ## Example 
 You can run iOS-Example project to check all features. There is also Unit Test Target where you can find how you can easily write unit tests covering module items.
 

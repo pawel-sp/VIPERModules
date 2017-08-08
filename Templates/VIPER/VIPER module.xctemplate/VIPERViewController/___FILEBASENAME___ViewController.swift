@@ -8,7 +8,7 @@
 
 import VIPERModules
 
-class ___VARIABLE_moduleName___ViewController: VIPERViewController<___VARIABLE_moduleName___ModuleBuilder>, ___VARIABLE_moduleName___ViewInterface {
+class ___VARIABLE_moduleName___ViewController: VIPERVMViewController<___VARIABLE_moduleName___ModuleBuilder>, ___VARIABLE_moduleName___ViewInterface {
     
     // MARK: - ___VARIABLE_moduleName___ViewInterface
     

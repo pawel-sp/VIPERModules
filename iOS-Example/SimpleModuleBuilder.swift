@@ -12,6 +12,7 @@ class SimpleModuleBuilder: VIPERModuleBuilderInterface {
     
     typealias WireframeInterface             = SimpleWireframeInterface
     typealias ViewInterace                   = SimpleViewInterface
+    typealias ViewModel                      = SimpleViewModel // or SimpleViewModelInterface
     typealias PresenterInterface             = SimplePresenterInterface
     typealias EventHandlerInterface          = SimpleEventHandlerInterface
     typealias InteractorDataSourceInterface  = SimpleInteractorDataSourceInterface

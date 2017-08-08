@@ -63,7 +63,6 @@ public extension VIPERModuleBuilderInterface {
         }
         
         viperWireframe._viewController = viperViewInteface as? UIViewController
-        viperViewInteface._presenter = viperPresenter
         viperViewInteface._eventHandler = viperEventHandler
         viperPresenter._viewInterface = viperViewInteface
         viperPresenter._wireframe = viperWireframe

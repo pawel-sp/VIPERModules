@@ -12,7 +12,7 @@ protocol SimpleWireframeInterface: VIPERWireframeInterface {
     
 }
 
-protocol SimpleViewInterface: VIPERViewInterface {
+protocol SimpleViewInterface: VIPERViewModelsInterface {
     
     func displayNavigationBarTitle(_ title:String) 
     func reloadTableView()
@@ -22,8 +22,6 @@ protocol SimpleViewInterface: VIPERViewInterface {
 protocol SimplePresenterInterface: VIPERPresenterInterface {
     
     func updateViewTitle()
-    func numberOfRows() -> Int
-    func titleForRow(at indexPath:IndexPath) -> String
     
 }
 
@@ -35,8 +33,7 @@ protocol SimpleEventHandlerInterface: VIPEREventHandlerInterface {
 
 protocol SimpleInteractorDataSourceInterface: VIPERInteractorDataSourceInterface {
     
-    func dataCount() -> Int
-    func titleForData(at index:Int) -> String 
+    var fetchedDataInfo:[DataItemInfo]? { get }
     
 }
 
