@@ -19,7 +19,7 @@ class ___FILEBASENAMEASIDENTIFIER___ModuleBuilder: VIPERModuleBuilderInterface {
     typealias InteractorEventsDelegate       = ___FILEBASENAMEASIDENTIFIER___InteractorEventsDelegate
     typealias DataManagerInterface           = ___FILEBASENAMEASIDENTIFIER___DataManagerInterface
     
-    static func module() -> WireframeInterface {
+    static func module() -> Module {
         return module(
             wireframeType: ___FILEBASENAMEASIDENTIFIER___Wireframe.self,
             viewInterfaceType: ___FILEBASENAMEASIDENTIFIER___ViewController.self,

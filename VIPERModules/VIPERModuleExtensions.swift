@@ -37,7 +37,7 @@ public extension VIPERModuleBuilderInterface {
         interactorEvents: InteractorEventsInterface,
         interactorEventsDelegate: InteractorEventsDelegate,
         dataManager: DataManagerInterface
-        ) -> WireframeInterface
+        ) -> Module
     {
         guard var viperWireframe = wireframe as? VIPERWireframeInterface else {
             VIPERLogger.fatal("WireframeInterface needs to conform to protocol VIPERWireframeInterface")
@@ -80,7 +80,7 @@ public extension VIPERModuleBuilderInterface {
         
         viperInteractorEvents._delegate = viperInteractorDelegate
         
-        return wireframe
+        return (wireframe, presenter)
     }
     
     public static func module
@@ -105,7 +105,7 @@ public extension VIPERModuleBuilderInterface {
         eventHandlerInitBlock: ((E.Type) -> E)? = nil,
         interactorInitBlock: ((I.Type) -> I)? = nil,
         dataManagerInitBlock: ((D.Type) -> D)? = nil
-        ) -> WireframeInterface
+        ) -> Module
     {
         let wireframe     = wireframeInitBlock?(wireframeType) ?? wireframeType.init()
         let viewInterface = viewInterfaceInitBlock?(viewInterfaceType) ?? wireframe.storyboard.instantiateViewController(withIdentifier: wireframe.viewControllerID) as! V

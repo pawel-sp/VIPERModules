@@ -27,6 +27,8 @@
 
 public protocol VIPERModuleBuilderInterface {
     
+    typealias Module = (wireframe: WireframeInterface, presenter: PresenterInterface)
+    
     associatedtype WireframeInterface
     associatedtype ViewInterace
     associatedtype PresenterInterface

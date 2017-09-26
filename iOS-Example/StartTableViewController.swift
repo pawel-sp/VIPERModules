@@ -13,7 +13,8 @@ class StartTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
             case 0:
-                let simpleWireframe = SimpleModuleBuilder.module()
+                let simpleModule    = SimpleModuleBuilder.module()
+                let simpleWireframe = simpleModule.wireframe
                 navigationController?.pushViewController(simpleWireframe.viewController!, animated: true)
             default:
                 break

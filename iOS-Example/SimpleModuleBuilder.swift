@@ -19,7 +19,7 @@ class SimpleModuleBuilder: VIPERModuleBuilderInterface {
     typealias InteractorEventsDelegate       = SimpleInteractorEventsDelegate
     typealias DataManagerInterface           = SimpleDataManagerInterface
     
-    static func module() -> WireframeInterface {
+    static func module() -> Module {
         return module(
             wireframeType: SimpleWireframe.self,
             viewInterfaceType: SimpleViewController.self,
