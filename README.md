@@ -19,7 +19,7 @@ To install templates for VIPER modules you need to copy ```Templates/VIPER``` fo
 
 ## UITableViewController, UICollectionViewController
 
-Generated module view controller subclasses from VIPERViewController which is a regular UIViewController. VIPERModules supports UITableViewController and UICollectionViewController. The only thing you need to do that is to change base class for generated view controller to VIPERTableViewController or VIPERCollectionViewController.
+VIPERModules supports UITableViewController and UICollectionViewController. During files creation from template you can choose different base view controller (there are following options: VIPERViewController, VIPERTableViewController and VIPERCollectionViewController).
 
 ## Example 
 You can run iOS-Example project to check all features. There is also Unit Test Target where you can find how you can easily write unit tests covering module items.
