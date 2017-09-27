@@ -10,12 +10,6 @@
 	<string>VIPER Module files.</string>
 	<key>SortOrder</key>
 	<string>30</string>
-	<key>AllowedTypes</key>
-	<array>
-		<string>public.swift-source</string>
-	</array>
-	<key>DefaultCompletionName</key>
-	<string>File</string>
 	<key>MainTemplateFile</key>
 	<string>___FILEBASENAME___.swift</string>
 	<key>Options</key>
@@ -27,8 +21,6 @@
 			<string>moduleName</string>
 			<key>Name</key>
 			<string>Module Name:</string>
-			<key>NotPersisted</key>
-			<true/>
 			<key>Required</key>
 			<true/>
 			<key>Type</key>
@@ -49,16 +41,18 @@
 			<string>vcBaseClass</string>
 			<key>Name</key>
 			<string>View Controller Base Class:</string>
+			<key>Required</key>
+			<string>YES</string>
 			<key>Type</key>
-			<string>combo</string>
+			<string>popup</string>
 			<key>Values</key>
 			<array>
 				<string>VIPERViewController</string>
 				<string>VIPERTableViewController</string>
 				<string>VIPERCollectionViewController</string>
 			</array>
-			<key>Required</key>
-			<string>YES</string>
+			<key>Default</key>
+			<string>VIPERViewController</string>
 		</dict>
 	</array>
 </dict>
