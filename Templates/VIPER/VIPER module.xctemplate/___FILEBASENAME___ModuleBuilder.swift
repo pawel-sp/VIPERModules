@@ -2,31 +2,31 @@
 //  ___FILENAME___
 //  ___PROJECTNAME___
 //
-//  Created by VIPERModules on ___DATE___.
-//___COPYRIGHT___
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  ___COPYRIGHT___
 //
 
 import VIPERModules
 
-class ___FILEBASENAMEASIDENTIFIER___ModuleBuilder: VIPERModuleBuilderInterface {
+class ___VARIABLE_moduleName___ModuleBuilder: VIPERModuleBuilderInterface {
     
-    typealias WireframeInterface             = ___FILEBASENAMEASIDENTIFIER___WireframeInterface
-    typealias ViewInterace                   = ___FILEBASENAMEASIDENTIFIER___ViewInterface
-    typealias PresenterInterface             = ___FILEBASENAMEASIDENTIFIER___PresenterInterface
-    typealias EventHandlerInterface          = ___FILEBASENAMEASIDENTIFIER___EventHandlerInterface
-    typealias InteractorDataSourceInterface  = ___FILEBASENAMEASIDENTIFIER___InteractorDataSourceInterface
-    typealias InteractorEventsInterface      = ___FILEBASENAMEASIDENTIFIER___InteractorEventsInterface
-    typealias InteractorEventsDelegate       = ___FILEBASENAMEASIDENTIFIER___InteractorEventsDelegate
-    typealias DataManagerInterface           = ___FILEBASENAMEASIDENTIFIER___DataManagerInterface
+    typealias WireframeInterface             = ___VARIABLE_moduleName___WireframeInterface
+    typealias ViewInterace                   = ___VARIABLE_moduleName___ViewInterface
+    typealias PresenterInterface             = ___VARIABLE_moduleName___PresenterInterface
+    typealias EventHandlerInterface          = ___VARIABLE_moduleName___EventHandlerInterface
+    typealias InteractorDataSourceInterface  = ___VARIABLE_moduleName___InteractorDataSourceInterface
+    typealias InteractorEventsInterface      = ___VARIABLE_moduleName___InteractorEventsInterface
+    typealias InteractorEventsDelegate       = ___VARIABLE_moduleName___InteractorEventsDelegate
+    typealias DataManagerInterface           = ___VARIABLE_moduleName___DataManagerInterface
     
     static func module() -> Module {
         return module(
-            wireframeType: ___FILEBASENAMEASIDENTIFIER___Wireframe.self,
-            viewInterfaceType: ___FILEBASENAMEASIDENTIFIER___ViewController.self,
-            presenterType: ___FILEBASENAMEASIDENTIFIER___Presenter.self,
-            eventHandlerType: ___FILEBASENAMEASIDENTIFIER___EventHandler.self,
-            interactorType: ___FILEBASENAMEASIDENTIFIER___Interactor.self,
-            dataManagerType: ___FILEBASENAMEASIDENTIFIER___DataManager.self
+            wireframeType: ___VARIABLE_moduleName___Wireframe.self,
+            viewInterfaceType: ___VARIABLE_moduleName___ViewController.self,
+            presenterType: ___VARIABLE_moduleName___Presenter.self,
+            eventHandlerType: ___VARIABLE_moduleName___EventHandler.self,
+            interactorType: ___VARIABLE_moduleName___Interactor.self,
+            dataManagerType: ___VARIABLE_moduleName___DataManager.self
         )
     }
     

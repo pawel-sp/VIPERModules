@@ -2,40 +2,40 @@
 //  ___FILENAME___
 //  ___PROJECTNAME___
 //
-//  Created by VIPERModules on ___DATE___.
-//___COPYRIGHT___
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  ___COPYRIGHT___
 //
 
 import VIPERModules
 
-protocol ___FILEBASENAMEASIDENTIFIER___WireframeInterface: VIPERWireframeInterface {
+protocol ___VARIABLE_moduleName___WireframeInterface: VIPERWireframeInterface {
     
 }
 
-protocol ___FILEBASENAMEASIDENTIFIER___ViewInterface: VIPERViewInterface {
+protocol ___VARIABLE_moduleName___ViewInterface: VIPERViewInterface {
     
 }
 
-protocol ___FILEBASENAMEASIDENTIFIER___PresenterInterface: VIPERPresenterInterface {
+protocol ___VARIABLE_moduleName___PresenterInterface: VIPERPresenterInterface {
     
 }
 
-protocol ___FILEBASENAMEASIDENTIFIER___EventHandlerInterface: VIPEREventHandlerInterface {
+protocol ___VARIABLE_moduleName___EventHandlerInterface: VIPEREventHandlerInterface {
     
 }
 
-protocol ___FILEBASENAMEASIDENTIFIER___InteractorEventsInterface: VIPERInteractorEventsInterface {
+protocol ___VARIABLE_moduleName___InteractorEventsInterface: VIPERInteractorEventsInterface {
     
 }
 
-protocol ___FILEBASENAMEASIDENTIFIER___InteractorEventsDelegate: VIPERInteractorEventsDelegate {
+protocol ___VARIABLE_moduleName___InteractorEventsDelegate: VIPERInteractorEventsDelegate {
     
 }
 
-protocol ___FILEBASENAMEASIDENTIFIER___InteractorDataSourceInterface: VIPERInteractorDataSourceInterface {
+protocol ___VARIABLE_moduleName___InteractorDataSourceInterface: VIPERInteractorDataSourceInterface {
     
 }
 
-protocol ___FILEBASENAMEASIDENTIFIER___DataManagerInterface: VIPERDataManagerInterface {
+protocol ___VARIABLE_moduleName___DataManagerInterface: VIPERDataManagerInterface {
     
 }

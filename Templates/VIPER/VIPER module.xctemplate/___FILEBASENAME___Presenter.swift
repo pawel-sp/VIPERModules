@@ -2,16 +2,16 @@
 //  ___FILENAME___
 //  ___PROJECTNAME___
 //
-//  Created by VIPERModules on ___DATE___.
-//___COPYRIGHT___
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  ___COPYRIGHT___
 //
 
 import VIPERModules
 
-class ___FILEBASENAMEASIDENTIFIER___Presenter: VIPERPresenter<___FILEBASENAMEASIDENTIFIER___ModuleBuilder>, ___FILEBASENAMEASIDENTIFIER___PresenterInterface, ___FILEBASENAMEASIDENTIFIER___InteractorEventsDelegate {
+class ___VARIABLE_moduleName___Presenter: VIPERPresenter<___VARIABLE_moduleName___ModuleBuilder>, ___VARIABLE_moduleName___PresenterInterface, ___VARIABLE_moduleName___InteractorEventsDelegate {
 
-    // MARK: - ___FILEBASENAMEASIDENTIFIER___PresenterInterface
+    // MARK: - ___VARIABLE_moduleName___PresenterInterface
     
-    // MARK: - ___FILEBASENAMEASIDENTIFIER___InteractorEventsDelegate
+    // MARK: - ___VARIABLE_moduleName___InteractorEventsDelegate
     
 }

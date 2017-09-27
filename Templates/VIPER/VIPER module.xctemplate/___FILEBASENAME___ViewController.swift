@@ -2,14 +2,14 @@
 //  ___FILENAME___
 //  ___PROJECTNAME___
 //
-//  Created by VIPERModules on ___DATE___.
-//___COPYRIGHT___
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  ___COPYRIGHT___
 //
 
 import VIPERModules
 
-class ___FILEBASENAMEASIDENTIFIER___ViewController: VIPERViewController<___FILEBASENAMEASIDENTIFIER___ModuleBuilder>, ___FILEBASENAMEASIDENTIFIER___ViewInterface {
+class ___VARIABLE_moduleName___ViewController: VIPERViewController<___VARIABLE_moduleName___ModuleBuilder>, ___VARIABLE_moduleName___ViewInterface {
     
-    // MARK: - ___FILEBASENAMEASIDENTIFIER___ViewInterface
+    // MARK: - ___VARIABLE_moduleName___ViewInterface
     
 }

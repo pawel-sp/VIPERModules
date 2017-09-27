@@ -2,16 +2,16 @@
 //  ___FILENAME___
 //  ___PROJECTNAME___
 //
-//  Created by VIPERModules on ___DATE___.
-//___COPYRIGHT___
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  ___COPYRIGHT___
 //
 
 import VIPERModules
 
-class ___FILEBASENAMEASIDENTIFIER___Interactor: VIPERInteractor<___FILEBASENAMEASIDENTIFIER___ModuleBuilder>, ___FILEBASENAMEASIDENTIFIER___InteractorEventsInterface, ___FILEBASENAMEASIDENTIFIER___InteractorDataSourceInterface {
+class ___VARIABLE_moduleName___Interactor: VIPERInteractor<___VARIABLE_moduleName___ModuleBuilder>, ___VARIABLE_moduleName___InteractorEventsInterface, ___VARIABLE_moduleName___InteractorDataSourceInterface {
     
-    // MARK: - ___FILEBASENAMEASIDENTIFIER___InteractorEventsInterface
+    // MARK: - ___VARIABLE_moduleName___InteractorEventsInterface
     
-    // MARK: - ___FILEBASENAMEASIDENTIFIER___InteractorDataSourceInterface
+    // MARK: - ___VARIABLE_moduleName___InteractorDataSourceInterface
     
 }
