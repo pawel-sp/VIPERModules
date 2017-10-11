@@ -40,7 +40,7 @@ public protocol VIPERModuleBuilderInterface {
     
 }
 
-public protocol VIPERWireframeInterface {
+public protocol VIPERWireframeInterface: class {
     
     var _viewController: UIViewController? { get set }
     var viewController: UIViewController? { get }
@@ -57,7 +57,7 @@ public protocol VIPERViewInterface: class {
     
 }
 
-public protocol VIPERPresenterInterface {
+public protocol VIPERPresenterInterface: class {
     
     var _viewInterface: VIPERViewInterface! { get set }
     var _wireframe: VIPERWireframeInterface! { get set }
@@ -66,7 +66,7 @@ public protocol VIPERPresenterInterface {
     
 }
 
-public protocol VIPEREventHandlerInterface {
+public protocol VIPEREventHandlerInterface: class {
     
     var _presenter: VIPERPresenterInterface! { get set }
     var _interactorEvents: VIPERInteractorEventsInterface! { get set }
@@ -74,14 +74,14 @@ public protocol VIPEREventHandlerInterface {
     
 }
 
-public protocol VIPERInteractorDataSourceInterface {
+public protocol VIPERInteractorDataSourceInterface: class {
     
     var _dataManager: VIPERDataManagerInterface! { get set }
     init()
     
 }
 
-public protocol VIPERInteractorEventsInterface {
+public protocol VIPERInteractorEventsInterface: class {
     
     var _delegate: VIPERInteractorEventsDelegate? { get set }
     init()
@@ -92,7 +92,7 @@ public protocol VIPERInteractorEventsDelegate: class {
     
 }
 
-public protocol VIPERDataManagerInterface {
+public protocol VIPERDataManagerInterface: class {
     
     init()
     

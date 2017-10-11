@@ -39,25 +39,25 @@ public extension VIPERModuleBuilderInterface {
         dataManager: DataManagerInterface
         ) -> Module
     {
-        guard var viperWireframe = wireframe as? VIPERWireframeInterface else {
+        guard let viperWireframe = wireframe as? VIPERWireframeInterface else {
             VIPERLogger.fatal("WireframeInterface needs to conform to protocol VIPERWireframeInterface")
         }
         guard let viperViewInteface = viewInterface as? VIPERViewInterface else {
             VIPERLogger.fatal("ViewInterface needs to conform to protocol VIPERViewInterface")
         }
-        guard var viperPresenter = presenter as? VIPERPresenterInterface else {
+        guard let viperPresenter = presenter as? VIPERPresenterInterface else {
             VIPERLogger.fatal("PresenterInterface needs to conform to protocol VIPERPresenterInterface")
         }
-        guard var viperEventHandler = eventHandler as? VIPEREventHandlerInterface else {
+        guard let viperEventHandler = eventHandler as? VIPEREventHandlerInterface else {
             VIPERLogger.fatal("EventHandlerInterface needs to conform to protocol VIPEREventHandlerInterface")
         }
-        guard var viperInteractorEvents = interactorEvents as? VIPERInteractorEventsInterface else {
+        guard let viperInteractorEvents = interactorEvents as? VIPERInteractorEventsInterface else {
             VIPERLogger.fatal("InteractorEventsInterface needs to conform to protocol VIPERInteractorEventsInterface")
         }
         guard let viperInteractorDelegate = interactorEventsDelegate as? VIPERInteractorEventsDelegate else {
             VIPERLogger.fatal("InteractorEventsDelegate needs to conform to protocol VIPERInteractorEventsDelegate")
         }
-        guard var viperInteractorDataSource = interactorDataSource as? VIPERInteractorDataSourceInterface else {
+        guard let viperInteractorDataSource = interactorDataSource as? VIPERInteractorDataSourceInterface else {
             VIPERLogger.fatal("InteractorDataSourceInterface needs to conform to protocol VIPERInteractorDataSourceInterface")
         }
         guard let viperDataManager = dataManager as? VIPERDataManagerInterface else {
