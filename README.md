@@ -9,6 +9,13 @@ VIPERModules extends that pattern:
 
 You can run project and study prepared example module.
 
+## Versions
+
+There are 2 working versions of VIPERModules available on following branches:
+
+- **master** is an official version of VIPERModules
+- **view_modeling** is a version with view models support
+
 ## Templates
 
 To install templates for VIPER modules you need to copy ```Templates/VIPER``` folder to Xcode templates folder:
