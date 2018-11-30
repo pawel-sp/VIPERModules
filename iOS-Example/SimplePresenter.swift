@@ -13,7 +13,7 @@ class SimplePresenter: VIPERPresenter<SimpleModuleBuilder>, SimplePresenterInter
     // MARK: - SimplePresenterInterface
     
     func updateViewTitle() {
-        viewInterface.displayNavigationBarTitle("Simple Module")
+        viewInterface?.displayNavigationBarTitle("Simple Module")
     }
     
     func numberOfRows() -> Int {
@@ -27,7 +27,7 @@ class SimplePresenter: VIPERPresenter<SimpleModuleBuilder>, SimplePresenterInter
     // MARK: - SimpleInteractorEventsDelegate
     
     func loadedData() {
-        viewInterface.reloadTableView()
+        viewInterface?.reloadTableView()
     }
     
 }

@@ -52,7 +52,7 @@ public protocol VIPERViewInterface: class {
 }
 
 public protocol VIPERPresenterInterface: class {
-    var _viewInterface: VIPERViewInterface! { get set }
+    var _viewInterface: VIPERViewInterface? { get set }
     var _wireframe: VIPERWireframeInterface! { get set }
     var _interactorDataSource: VIPERInteractorDataSourceInterface! { get set }
     init()

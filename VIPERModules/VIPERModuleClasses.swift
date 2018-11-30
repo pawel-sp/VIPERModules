@@ -97,9 +97,9 @@ open class VIPERCollectionViewController<ModuleBuilder: VIPERModuleBuilderInterf
 }
 
 open class VIPERPresenter<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERModuleItem, VIPERPresenterInterface {
-    public weak var _viewInterface: VIPERViewInterface!
-    public var viewInterface: ModuleBuilder.ViewInterace {
-        return _viewInterface as! ModuleBuilder.ViewInterace
+    public weak var _viewInterface: VIPERViewInterface?
+    public var viewInterface: ModuleBuilder.ViewInterace? {
+        return _viewInterface as? ModuleBuilder.ViewInterace
     }
     
     public var _wireframe: VIPERWireframeInterface!
