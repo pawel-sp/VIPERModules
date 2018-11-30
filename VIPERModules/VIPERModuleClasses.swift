@@ -29,7 +29,7 @@ open class VIPERModuleItem {
     public required init() {}
     
     deinit {
-        VIPERLogger.log("\(type(of:self)) deallocated")
+        VIPERLogger.log("\(type(of: self)) deallocated")
     }
 }
 
@@ -60,7 +60,7 @@ open class VIPERViewController<ModuleBuilder: VIPERModuleBuilderInterface>: UIVi
     }
     
     deinit {
-        VIPERLogger.log("\(type(of:self)) deallocated")
+        VIPERLogger.log("\(type(of: self)) deallocated")
     }
 }
 
@@ -76,7 +76,7 @@ open class VIPERTableViewController<ModuleBuilder: VIPERModuleBuilderInterface>:
     }
     
     deinit {
-        VIPERLogger.log("\(type(of:self)) deallocated")
+        VIPERLogger.log("\(type(of: self)) deallocated")
     }
 }
 
@@ -92,7 +92,7 @@ open class VIPERCollectionViewController<ModuleBuilder: VIPERModuleBuilderInterf
     }
     
     deinit {
-        VIPERLogger.log("\(type(of:self)) deallocated")
+        VIPERLogger.log("\(type(of: self)) deallocated")
     }
 }
 
