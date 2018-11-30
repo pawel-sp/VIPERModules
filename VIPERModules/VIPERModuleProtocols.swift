@@ -26,7 +26,6 @@
 //
 
 public protocol VIPERModuleBuilderInterface {
-    
     typealias Module = (wireframe: WireframeInterface, presenter: PresenterInterface)
     
     associatedtype WireframeInterface
@@ -37,63 +36,46 @@ public protocol VIPERModuleBuilderInterface {
     associatedtype InteractorEventsInterface
     associatedtype InteractorEventsDelegate
     associatedtype DataManagerInterface
-    
 }
 
 public protocol VIPERWireframeInterface: class {
-    
     var _viewController: UIViewController? { get set }
     var viewController: UIViewController? { get }
-    var storyboard:UIStoryboard! { get }
-    var viewControllerID:String! { get }
+    var storyboard: UIStoryboard! { get }
+    var viewControllerID: String! { get }
     init()
-    
 }
 
 public protocol VIPERViewInterface: class {
-    
     var _presenter: VIPERPresenterInterface! { get set }
     var _eventHandler: VIPEREventHandlerInterface! { get set }
-    
 }
 
 public protocol VIPERPresenterInterface: class {
-    
     var _viewInterface: VIPERViewInterface! { get set }
     var _wireframe: VIPERWireframeInterface! { get set }
     var _interactorDataSource: VIPERInteractorDataSourceInterface! { get set }
     init()
-    
 }
 
 public protocol VIPEREventHandlerInterface: class {
-    
     var _presenter: VIPERPresenterInterface! { get set }
     var _interactorEvents: VIPERInteractorEventsInterface! { get set }
     init()
-    
 }
 
 public protocol VIPERInteractorDataSourceInterface: class {
-    
     var _dataManager: VIPERDataManagerInterface! { get set }
     init()
-    
 }
 
 public protocol VIPERInteractorEventsInterface: class {
-    
     var _delegate: VIPERInteractorEventsDelegate? { get set }
     init()
-    
 }
 
-public protocol VIPERInteractorEventsDelegate: class {
-    
-}
+public protocol VIPERInteractorEventsDelegate: class {}
 
 public protocol VIPERDataManagerInterface: class {
-    
     init()
-    
 }

@@ -26,9 +26,7 @@
 //
 
 public extension VIPERModuleBuilderInterface {
-    
-    public static func module
-        (
+    public static func module(
         wireframe: WireframeInterface,
         viewInterface: ViewInterace,
         presenter: PresenterInterface,
@@ -37,8 +35,8 @@ public extension VIPERModuleBuilderInterface {
         interactorEvents: InteractorEventsInterface,
         interactorEventsDelegate: InteractorEventsDelegate,
         dataManager: DataManagerInterface
-        ) -> Module
-    {
+        ) -> Module {
+        
         guard let viperWireframe = wireframe as? VIPERWireframeInterface else {
             VIPERLogger.fatal("WireframeInterface needs to conform to protocol VIPERWireframeInterface")
         }
@@ -65,19 +63,14 @@ public extension VIPERModuleBuilderInterface {
         }
         
         viperWireframe._viewController = viperViewInteface as? UIViewController
-        
-        viperViewInteface._presenter    = viperPresenter
+        viperViewInteface._presenter = viperPresenter
         viperViewInteface._eventHandler = viperEventHandler
-        
-        viperPresenter._viewInterface        = viperViewInteface
-        viperPresenter._wireframe            = viperWireframe
+        viperPresenter._viewInterface = viperViewInteface
+        viperPresenter._wireframe = viperWireframe
         viperPresenter._interactorDataSource = viperInteractorDataSource
-        
-        viperEventHandler._presenter        = viperPresenter
+        viperEventHandler._presenter = viperPresenter
         viperEventHandler._interactorEvents = viperInteractorEvents
-        
         viperInteractorDataSource._dataManager = viperDataManager
-        
         viperInteractorEvents._delegate = viperInteractorDelegate
         
         return (wireframe, presenter)
@@ -105,14 +98,14 @@ public extension VIPERModuleBuilderInterface {
         eventHandlerInitBlock: ((E.Type) -> E)? = nil,
         interactorInitBlock: ((I.Type) -> I)? = nil,
         dataManagerInitBlock: ((D.Type) -> D)? = nil
-        ) -> Module
-    {
-        let wireframe     = wireframeInitBlock?(wireframeType) ?? wireframeType.init()
+        ) -> Module {
+        
+        let wireframe = wireframeInitBlock?(wireframeType) ?? wireframeType.init()
         let viewInterface = viewInterfaceInitBlock?(viewInterfaceType) ?? wireframe.storyboard.instantiateViewController(withIdentifier: wireframe.viewControllerID) as! V
-        let presenter     = presenterInitBlock?(presenterType) ?? presenterType.init()
-        let eventHandler  = eventHandlerInitBlock?(eventHandlerType) ?? eventHandlerType.init()
-        let interactor    = interactorInitBlock?(interactorType) ?? interactorType.init()
-        let dataManager   = dataManagerInitBlock?(dataManagerType) ?? dataManagerType.init()
+        let presenter = presenterInitBlock?(presenterType) ?? presenterType.init()
+        let eventHandler = eventHandlerInitBlock?(eventHandlerType) ?? eventHandlerType.init()
+        let interactor = interactorInitBlock?(interactorType) ?? interactorType.init()
+        let dataManager = dataManagerInitBlock?(dataManagerType) ?? dataManagerType.init()
         
         return module(
             wireframe: wireframe as! WireframeInterface,
@@ -125,5 +118,4 @@ public extension VIPERModuleBuilderInterface {
             dataManager: dataManager as! DataManagerInterface
         )
     }
-    
 }
