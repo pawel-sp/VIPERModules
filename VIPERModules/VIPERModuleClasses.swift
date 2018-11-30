@@ -26,34 +26,29 @@
 //
 
 open class VIPERModuleItem {
-    
     public required init() {}
     
     deinit {
         VIPERLogger.log("\(type(of:self)) deallocated")
     }
-    
 }
 
 open class VIPERWireframe<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERModuleItem, VIPERWireframeInterface {
-    
     public weak var _viewController: UIViewController?
     public var viewController: UIViewController? {
         return _viewController
     }
     
-    open var storyboard:UIStoryboard! {
+    open var storyboard: UIStoryboard! {
         VIPERLogger.fatal("You need to override storyboard property in your subclass")
     }
     
-    open var viewControllerID:String! {
+    open var viewControllerID: String! {
         VIPERLogger.fatal("You need to override viewControllerID property in your subclass")
     }
-    
 }
 
 open class VIPERViewController<ModuleBuilder: VIPERModuleBuilderInterface>: UIViewController, VIPERViewInterface {
-    
     public var _presenter: VIPERPresenterInterface!
     public var presenter: ModuleBuilder.PresenterInterface {
         return _presenter as! ModuleBuilder.PresenterInterface
@@ -67,11 +62,9 @@ open class VIPERViewController<ModuleBuilder: VIPERModuleBuilderInterface>: UIVi
     deinit {
         VIPERLogger.log("\(type(of:self)) deallocated")
     }
-    
 }
 
 open class VIPERTableViewController<ModuleBuilder: VIPERModuleBuilderInterface>: UITableViewController, VIPERViewInterface {
-    
     public var _presenter: VIPERPresenterInterface!
     public var presenter: ModuleBuilder.PresenterInterface {
         return _presenter as! ModuleBuilder.PresenterInterface
@@ -85,11 +78,9 @@ open class VIPERTableViewController<ModuleBuilder: VIPERModuleBuilderInterface>:
     deinit {
         VIPERLogger.log("\(type(of:self)) deallocated")
     }
-    
 }
 
 open class VIPERCollectionViewController<ModuleBuilder: VIPERModuleBuilderInterface>: UICollectionViewController, VIPERViewInterface {
-    
     public var _presenter: VIPERPresenterInterface!
     public var presenter: ModuleBuilder.PresenterInterface {
         return _presenter as! ModuleBuilder.PresenterInterface
@@ -103,11 +94,9 @@ open class VIPERCollectionViewController<ModuleBuilder: VIPERModuleBuilderInterf
     deinit {
         VIPERLogger.log("\(type(of:self)) deallocated")
     }
-    
 }
 
 open class VIPERPresenter<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERModuleItem, VIPERPresenterInterface {
-    
     public weak var _viewInterface: VIPERViewInterface!
     public var viewInterface: ModuleBuilder.ViewInterace {
         return _viewInterface as! ModuleBuilder.ViewInterace
@@ -122,11 +111,9 @@ open class VIPERPresenter<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERModu
     public var interactorDataSource: ModuleBuilder.InteractorDataSourceInterface {
         return _interactorDataSource as! ModuleBuilder.InteractorDataSourceInterface
     }
-    
 }
 
 open class VIPEREventHandler<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERModuleItem, VIPEREventHandlerInterface {
-    
     public var _presenter: VIPERPresenterInterface!
     public var presenter: ModuleBuilder.PresenterInterface {
         return _presenter as! ModuleBuilder.PresenterInterface
@@ -136,13 +123,9 @@ open class VIPEREventHandler<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERM
     public var interactorEvents: ModuleBuilder.InteractorEventsInterface {
         return _interactorEvents as! ModuleBuilder.InteractorEventsInterface
     }
-    
-
-    
 }
 
 open class VIPERInteractor<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERModuleItem, VIPERInteractorDataSourceInterface, VIPERInteractorEventsInterface {
-    
     public var _dataManager: VIPERDataManagerInterface!
     public var dataManager: ModuleBuilder.DataManagerInterface {
         return _dataManager as! ModuleBuilder.DataManagerInterface
@@ -152,9 +135,6 @@ open class VIPERInteractor<ModuleBuilder: VIPERModuleBuilderInterface>: VIPERMod
     public var delegate: ModuleBuilder.InteractorEventsDelegate? {
         return _delegate as? ModuleBuilder.InteractorEventsDelegate
     }
-    
 }
 
-open class VIPERDataManager: VIPERModuleItem, VIPERDataManagerInterface {
-    
-}
+open class VIPERDataManager: VIPERModuleItem, VIPERDataManagerInterface {}

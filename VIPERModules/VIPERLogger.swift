@@ -28,13 +28,11 @@
 import Foundation
 
 class VIPERLogger {
-    
-    static func fatal(_ message:String) -> Never {
+    static func fatal(_ message: String) -> Never {
         fatalError("VIPERModule: \(message)")
     }
     
-    static func log(_ message:String) {
+    static func log(_ message: String) {
         print("VIPERModule: \(message)")
     }
-    
 }
